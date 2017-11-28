@@ -457,11 +457,10 @@ output:
 
 
 **Useful links**:
-
-https://github.com/dotnet/BenchmarkDotNet
-https://github.com/dotnet/roslyn/issues/1235
-https://github.com/fsharp/fslang-design/blob/master/RFCs/FS-1011-warn-on-recursive-without-tail-call.md
-https://blogs.msdn.microsoft.com/fsharpteam/2011/07/08/tail-calls-in-f/
-https://blogs.msdn.microsoft.com/clrcodegeneration/2010/05/07/jit-etw-tail-call-event-fail-reasons/
-https://docs.microsoft.com/en-us/dotnet/framework/performance/jit-tracing-etw-events
-https://blogs.msdn.microsoft.com/clrcodegeneration/2009/05/11/jit-etw-tracing-in-net-framework-4/
+ - [https://github.com/dotnet/BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet)
+ - [https://github.com/dotnet/roslyn/issues/1235](https://github.com/dotnet/roslyn/issues/1235)
+ - [https://github.com/fsharp/fslang-design/blob/master/RFCs/FS-1011-warn-on-recursive-without-tail-call.md](https://github.com/fsharp/fslang-design/blob/master/RFCs/FS-1011-warn-on-recursive-without-tail-call.md)
+ - [https://blogs.msdn.microsoft.com/fsharpteam/2011/07/08/tail-calls-in-f/](https://blogs.msdn.microsoft.com/fsharpteam/2011/07/08/tail-calls-in-f/)
+ - [https://blogs.msdn.microsoft.com/clrcodegeneration/2010/05/07/jit-etw-tail-call-event-fail-reasons/](https://blogs.msdn.microsoft.com/clrcodegeneration/2010/05/07/jit-etw-tail-call-event-fail-reasons/)
+ - [https://docs.microsoft.com/en-us/dotnet/framework/performance/jit-tracing-etw-events](https://docs.microsoft.com/en-us/dotnet/framework/performance/jit-tracing-etw-events)
+ - [https://blogs.msdn.microsoft.com/clrcodegeneration/2009/05/11/jit-etw-tracing-in-net-framework-4/](https://blogs.msdn.microsoft.com/clrcodegeneration/2009/05/11/jit-etw-tracing-in-net-framework-4/)
