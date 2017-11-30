@@ -1,5 +1,5 @@
 
-# Tail call in dotnet #
+# Tale about the tail call in dotnet #
 
 In the programming as the recursion we call the function which is directly, or indirectly calls itself: A->B / A->B->A.
 The recursive calls obviously might be a reason of stack overflowing [StackOverflowException].
