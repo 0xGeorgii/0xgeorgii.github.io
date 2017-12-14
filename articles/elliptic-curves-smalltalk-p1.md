@@ -99,9 +99,24 @@ The complexity in this case - is that the group of point on an elliptic curve mi
 
 <img src="https://latex.codecogs.com/gif.latex?nP=mP"/>
 <img src="https://latex.codecogs.com/gif.latex?\varnothing&space;=&space;(m-n)P&space;=&space;P&plus;...m...&plus;P-P...n...P"/>
-count of pointer restricted by square field size plus one. As Hasse's theorem on elliptic curves tells us - the amount of pointer about order of field. Consequently - if the pointer generated big enough field, needs find on what P was multiplied on what to get Q.
+count of pointer restricted by square field size plus one. As [Hasse's theorem on elliptic curves](https://en.wikipedia.org/wiki/Hasse%27s_theorem_on_elliptic_curves) tells us - the amount of pointer is about order of field. Consequently - if the pointer generated big enough field, needs find on what P was multiplied on what to get Q.
 
 important: if P and n is known - the calculation of Q might be done quickly <img src="https://latex.codecogs.com/gif.latex?O(\sqrt&space;p)"/>:
 <img src="https://latex.codecogs.com/gif.latex?5P=(P&plus;P)&plus;(P&plus;P)&plus;P"/>
 
 to be continued...
+
+
+----------
+
+
+**Useful links**:
+ - [https://en.wikipedia.org/wiki/Abelian_group](https://en.wikipedia.org/wiki/Abelian_group)
+ - [https://en.wikipedia.org/wiki/Finite_field](https://en.wikipedia.org/wiki/Finite_field)
+ - [https://en.wikipedia.org/wiki/Real_number](https://en.wikipedia.org/wiki/Real_number)
+ - [https://en.wikipedia.org/wiki/Complex_number](https://en.wikipedia.org/wiki/Complex_number)
+ - [https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)
+ - [https://en.wikipedia.org/wiki/Discrete_logarithm](https://en.wikipedia.org/wiki/Discrete_logarithm)
+ - [https://ru.wikipedia.org/wiki/ECDLP](https://ru.wikipedia.org/wiki/ECDLP)
+ - [https://en.wikipedia.org/wiki/Hasse%27s_theorem_on_elliptic_curves](https://en.wikipedia.org/wiki/Hasse%27s_theorem_on_elliptic_curves)
+ 
