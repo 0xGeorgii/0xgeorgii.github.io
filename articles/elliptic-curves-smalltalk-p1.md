@@ -13,11 +13,11 @@ What the elliptic curves are? Simply talk - that is the set of solutions of an e
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/ECClines-3.svg" />
 
-Why they are interesting and why are they use in cryptography? The first fascinating fact that we are able to summarize two points on a curve: if we have two points on a curve (P and Q), we may associate them to the third point at call it their sum. To do that we should intersect P and Q. That line will cross a curve in the only one point R, which then reflect R from X-axis[1]. That's it.
+Why they are interesting and why are they use in cryptography? The first fascinating fact is that we are able to summarize two points on a curve: if we have two points on a curve (P and Q), we may associate them to the third point and to call it as their sum. To do that we should intersect P and Q. That line will cross a curve at the only one point R, which then we will reflect R from X-axis[1]. That's it.
 
-The problem might be if we will try to summarize a point with itself. It's not a problem, actually: that means the line becomes the tangent curve[2].
+The problem might be if we would try to summarize a point with itself. It's not a problem, actually: that means the line becomes the tangent curve[2].
 
-The second problem if we try to summarize two symmetric points. In that case we assumes there is a point somewhere in infinity <img src="https://latex.codecogs.com/gif.latex?\inline&space;\varnothing"/>[3].
+The second problem if we will try to summarize two symmetric points. In that case we assumes the solution is a point somewhere in infinity <img src="https://latex.codecogs.com/gif.latex?\inline&space;\varnothing"/>[3].
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/ECClines.svg" />
 
@@ -95,11 +95,11 @@ need to find <img src="https://latex.codecogs.com/gif.latex?g^{x}&space;\equiv&s
 need to find <img src="https://latex.codecogs.com/gif.latex?n,nP=Q"/>
 this is <img src="https://latex.codecogs.com/gif.latex?n&space;=&space;log_{P}&space;Q" />
 
-The complexity in this case - is that the group of point on an elliptic curve might not be a circle. There is no generatrix point there. But we can select a point on the elliptic curve use of which we are able to generate Many points on the elliptic curve. If in circle group we power the generatix number to get others non zero elements of field, in elliptic curve case - we cannot multiply points, but can only sum them.
+The complexity in this case - is that the group of the point on an elliptic curve might be not cyclic. There is no generatrix point there. But we can select a point on the elliptic curve use of which we are able to generate Many points on the elliptic curve. If in the cyclic group we can power the generatrix number to get others non zero elements of the field, in elliptic curve case - we cannot multiple points, but can only sum them.
 
 <img src="https://latex.codecogs.com/gif.latex?nP=mP"/>
 <img src="https://latex.codecogs.com/gif.latex?\varnothing&space;=&space;(m-n)P&space;=&space;P&plus;...m...&plus;P-P...n...P"/>
-count of pointer restricted by square field size plus one. As [Hasse's theorem on elliptic curves](https://en.wikipedia.org/wiki/Hasse%27s_theorem_on_elliptic_curves) tells us - the amount of pointer is about order of field. Consequently - if the pointer generated big enough field, needs find on what P was multiplied on what to get Q.
+count of pointer restricted by square field size plus one. As [Hasse's theorem on elliptic curves](https://en.wikipedia.org/wiki/Hasse%27s_theorem_on_elliptic_curves) tells us - the amount of pointers is about an order of field. Consequently - if the pointer generated big enough field, need to find what P was multiplied on to get Q.
 
 important: if P and n is known - the calculation of Q might be done quickly <img src="https://latex.codecogs.com/gif.latex?O(\sqrt&space;p)"/>:
 <img src="https://latex.codecogs.com/gif.latex?5P=(P&plus;P)&plus;(P&plus;P)&plus;P"/>
