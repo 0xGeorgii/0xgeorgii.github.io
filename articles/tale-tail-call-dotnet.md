@@ -71,63 +71,63 @@ Here is the instructions order:
 
 To allow the compiler to generate the tail call we have to modify the function to shift the recursive call in the last position.
 
-	private static long FactorialWithTailing(int pos, int depth)
-	{
-	     return pos == 0 ? depth : FactorialWithTailing(pos - 1, depth * pos);
-	}
+     private static long FactorialWithTailing(int i, int acc)
+     {
+         return i == 0 ? acc : FactorialWithTailing(i - 1, acc * i);
+     }
 
 and the entrypoint function:
 
-     private static long FactorialWithTailing(int depth)
+     private static long FactorialWithTailing(int i)
      {
-          return FactorialWithTailing(1, depth);
+         return FactorialWithTailing(i, 1);
      }
 
 The entrypoint function serves the call with constant 1. Consider the new IL code:
 
-	.method private hidebysig static
-	    int64 FactorialWithTailing (
-	        int32 depth
-	    ) cil managed
+	.method private hidebysig static 
+		int64 FactorialWithTailing (
+			int32 i
+		) cil managed 
 	{
-	    // Method begins at RVA 0x2f9e
-	    // Code size 8 (0x8)
-	    .maxstack 8
-	
-	    IL_0000: ldc.i4.1
-	    IL_0001: ldarg.0
-	    IL_0002: call int64 Jit_TailCalling::FactorialWithTailing(int32, int32)
-	    IL_0007: ret
-	} // end of method Jit_TailCalling::FactorialWithTailing
+		// Method begins at RVA 0x2c70
+		// Code size 8 (0x8)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: ldc.i4.1
+		IL_0002: call int64 BenchmarkDotNet.Samples.JIT.Jit_Inlining::FactorialWithTailing(int32, int32)
+		IL_0007: ret
+	} // end of method Jit_Inlining::FactorialWithTailing
 
 for the entrypoint:
 
-	.method private hidebysig static
-	    int64 FactorialWithTailing (
-	        int32 pos,
-	        int32 depth
-	    ) cil managed
+	.method private hidebysig static 
+		int64 FactorialWithTailing (
+			int32 i,
+			int32 acc
+		) cil managed 
 	{
-	    // Method begins at RVA 0x2f8b
-	    // Code size 18 (0x12)
-	    .maxstack 8
-	
-	    IL_0000: ldarg.0
-	    IL_0001: brfalse.s IL_000f
-	
-	    IL_0003: ldarg.0
-	    IL_0004: ldc.i4.1
-	    IL_0005: sub
-	    IL_0006: ldarg.1
-	    IL_0007: ldarg.0
-	    IL_0008: mul
-	    IL_0009: call int64 Jit_TailCalling::FactorialWithTailing(int32, int32)
-	    IL_000e: ret
-	
-	    IL_000f: ldarg.1
-	    IL_0010: conv.i8
-	    IL_0011: ret
-	} // end of method Jit_TailCalling::FactorialWithTailing
+		// Method begins at RVA 0x2c5d
+		// Code size 18 (0x12)
+		.maxstack 8
+
+		IL_0000: ldarg.0
+		IL_0001: brfalse.s IL_000f
+
+		IL_0003: ldarg.0
+		IL_0004: ldc.i4.1
+		IL_0005: sub
+		IL_0006: ldarg.1
+		IL_0007: ldarg.0
+		IL_0008: mul
+		IL_0009: call int64 BenchmarkDotNet.Samples.JIT.Jit_Inlining::FactorialWithTailing(int32, int32)
+		IL_000e: ret
+
+		IL_000f: ldarg.1
+		IL_0010: conv.i8
+		IL_0011: ret
+	} // end of method Jit_Inlining::FactorialWithTailing
 
 Pay attention to recursive call instruction
 
