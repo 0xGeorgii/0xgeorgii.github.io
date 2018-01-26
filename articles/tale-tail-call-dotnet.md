@@ -348,22 +348,22 @@ The C# demo:
 	  [Benchmark]
 	  public long Calc()
 	  {
-	  return FactorialWithoutTailing(7) - FactorialWithTailing(7);
+	      return FactorialWithoutTailing(7) - FactorialWithTailing(7);
 	  }
-	
+
 	  private static long FactorialWithoutTailing(int depth)
 	  {
-	  return depth == 0 ? 1 : depth * FactorialWithoutTailing(depth - 1);
+	      return depth == 0 ? 1 : depth * FactorialWithoutTailing(depth - 1);
 	  }
-	
-	  private static long FactorialWithTailing(int pos, int depth)
+
+	  private static long FactorialWithTailing(int i, int acc)
 	  {
-	  return pos == 0 ? depth : FactorialWithTailing(pos - 1, depth * pos);
+	      return i == 0 ? acc : FactorialWithTailing(i - 1, acc * i);
 	  }
-	
-	  private static long FactorialWithTailing(int depth)
+
+	  private static long FactorialWithTailing(int i)
 	  {
-	  return FactorialWithTailing(1, depth);
+	      return FactorialWithTailing(i, 1);
 	  }
 	  }
 
