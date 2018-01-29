@@ -37,7 +37,7 @@ Encrypted text from <img src="https://latex.codecogs.com/gif.latex?B"/> to <img 
 1. <img src="https://latex.codecogs.com/gif.latex?C_1"/> = <img src="https://latex.codecogs.com/gif.latex?kP"/>
 2. <img src="https://latex.codecogs.com/gif.latex?C_2"/> = <img src="https://latex.codecogs.com/gif.latex?M"/> + <img src="https://latex.codecogs.com/gif.latex?kQ_a"/>
 receiver:
-<img src="https://latex.codecogs.com/gif.latex?C_2"/> - <img src="https://latex.codecogs.com/gif.latex?d_AC_1=(M&plus;kd_aP)-d_AkP=M"/>
+<img src="https://latex.codecogs.com/gif.latex?C_2-d_AC_1=(M&plus;kd_aP)-d_AkP=M"/>
 
 It means anyone can encrypt and send a message, but the only receiver who has both keys can decrypt it. 
 Real life example is the post office. You came to send a post to your aunt. You are able to put your envelope into the box, but you cannot open it.
@@ -103,7 +103,7 @@ The problem causes if <img src="https://latex.codecogs.com/gif.latex?N"/> is a m
   - <img src="https://latex.codecogs.com/gif.latex?d<N"/> - victory
   - <img src="https://latex.codecogs.com/gif.latex?d=N"/> - should re-generate all and do it once again
 
-Average working time: <img src="https://latex.codecogs.com/gif.latex?O(e\sqrt{2(log\;p)(log\;log\;p)})"/>  
+Average working time: <img src="https://latex.codecogs.com/gif.latex?O(e^{\sqrt{2(log\;p)(log\;log\;p)}})"/>  
 
 
 ----------
