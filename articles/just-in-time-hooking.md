@@ -2,7 +2,7 @@
 # Just In Time Hooking #
 
 At the time the [Clr](https://github.com/dotnet/coreclr) became open source, tons of opportunities and ways to improve and analyze the code came alive.
-One of the way I'd like to show you were developed when I was working on an enhancement  for the [BDN](https://github.com/dotnet/BenchmarkDotNet) project.
+One of the ways I'd like to show you was developed when I was working on an enhancement  for the [BDN](https://github.com/dotnet/BenchmarkDotNet) project.
 
 The question was: *how can I add the annotations for the JIT disassembly output?*
 And the answer was: *hey, take a look at the [JIT dumps](https://github.com/dotnet/coreclr/blob/master/Documentation/building/viewing-jit-dumps.md).*
@@ -27,14 +27,14 @@ While I've been analyzing the JIT dumps, like
 ```
 
 I was thinking: what do all these guys (BLENDED_CODE, optimized code, ...) mean and
-*if it's possible to me, to know how the JIT analyzing and trying to optimize my code?*
+*if it's possible to me, to knew how the JIT analyze and try to optimize my code?*
 
-Describing all this is the separate topic, for now, let's try to extract as much information from the JIT as it's possible.
-For doing it, it's reasonable to use one technique which is applicable because the source is open - [hooking](https://en.wikipedia.org/wiki/Hooking).
+Describing all this in the separate topic, for now, let's try to extract as much information from the JIT as it's possible.
+To do it, it's reasonable to use one technique which is applicable because the source is open - [hooking](https://en.wikipedia.org/wiki/Hooking).
 
 ## Hooking ##
 
-To mine information about my function interested to me the easiest way is to treat this information right from the compiler, I believe.
+To get the information about my function interested to me the easiest way is to treat this information right from the compiler, I believe.
 From the different techniques of hooking, I selected the runtime one by the reason hooking JIT, and I want to get the current, real information
 from my system preferable compiler, which I can expect on the most computers instead of developers version.
 
