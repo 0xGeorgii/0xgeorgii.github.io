@@ -48,7 +48,7 @@ It should:
 3. arguments mostly should give me the information I'm looking for
 
 Lucky, In the CoreClr there is an entrypoint wich suits perfectly, it's `extern "C" ICorJitCompiler* __stdcall getJit()` from
-[here](https://github.com/dotnet/coreclr/blob/fc3a969ad46a4689332792dab01d647db1ce41c1/src/ToolBox/superpmi/superpmi-shim-simple/superpmi-shim-simple.cpp#L99).
+[here](https://github.com/dotnet/coreclr/blob/8db8ec135fb5e797b6bdc6e68545bb4661f43881/src/inc/corjit.h#L241).
 
 Before digging deep into the internals it makes sense to describe *the common hooking workflow*.
 
