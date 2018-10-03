@@ -271,20 +271,20 @@ In CASC-J9, however, Grackle is used only to develop E strategies and the main d
 
 ## References ##
 
-* [1] Hi order automated theorem prover http://page.mi.fu-berlin.de/cbenzmueller/papers/B14.pdf
-* [2] A Guide to the Mizar Soft Type System https://pdfs.semanticscholar.org/82f2/dfa4437b79a35aaf72ce71e85a919103b88f.pdf
-* [3] Conjunctive normal form https://en.wikipedia.org/wiki/Conjunctive_normal_form
-* [4] Automated Reasoning and Mathematics: Essays in Memory of William W. McCune, page 250 https://books.google.ru/books?id=Ywa7BQAAQBAJ&pg=PA250&lpg=PA250&dq=Large+Theory+Batch+Problems&source=bl&ots=OoiDUuQQ2e&sig=p6IvNymJr_MyY5iXpAtY2k9NmWk&hl=ru&sa=X&ved=2ahUKEwjNlMOC19XdAhWDWSwKHUfoAOUQ6AEwBHoECAYQAQ#v=onepage&q=Large%20Theory%20Batch%20Problems&f=false
-* [5] E-Matching with Free Variables https://pdfs.semanticscholar.org/d88d/8cf28494ce101e0b69113f63febee62ce64a.pdf
-* [6] https://disser.spbu.ru/files/disser2/disser/LKfkdgQnht.pdf page 27
-* [7] W.W. McCune (1997). "Solution of the Robbins Problem". Journal of Automated Reasoning. 19 (3). http://www.springerlink.com/content/h77246751668616h/
-* [8] Gina Kolata (December 10, 1996). "Computer Math Proof Shows Reasoning Power". The New York Times. Retrieved 2008-10-11. https://www.nytimes.com/library/cyber/week/1210math.html
-* [9] Sutcliffe, Geoff. "The TPTP Problem Library for Automated Theorem Proving". Retrieved 8 September 2012. http://www.cs.miami.edu/~tptp/
-* [10] Method of analytic tableaux https://en.wikipedia.org/wiki/Method_of_analytic_tableaux
-* [11] Resolution (logic) https://en.wikipedia.org/wiki/Resolution_(logic)
-* http://www.cadeinc.org/
-* http://ijcar.org/
-* https://en.wikipedia.org/wiki/Automated_theorem_proving
+* [1] Hi order automated theorem prover [http://page.mi.fu-berlin.de/cbenzmueller/papers/B14.pdf](http://page.mi.fu-berlin.de/cbenzmueller/papers/B14.pdf)
+* [2] A Guide to the Mizar Soft Type System [https://pdfs.semanticscholar.org/82f2/dfa4437b79a35aaf72ce71e85a919103b88f.pdf](https://pdfs.semanticscholar.org/82f2/dfa4437b79a35aaf72ce71e85a919103b88f.pdf)
+* [3] Conjunctive normal form [https://en.wikipedia.org/wiki/Conjunctive_normal_form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)
+* [4] Automated Reasoning and Mathematics: Essays in Memory of William W. McCune, page 250 [https://books.google.ru/books](https://books.google.ru/books?id=Ywa7BQAAQBAJ&pg=PA250&lpg=PA250&dq=Large+Theory+Batch+Problems&source=bl&ots=OoiDUuQQ2e&sig=p6IvNymJr_MyY5iXpAtY2k9NmWk&hl=ru&sa=X&ved=2ahUKEwjNlMOC19XdAhWDWSwKHUfoAOUQ6AEwBHoECAYQAQ#v=onepage&q=Large%20Theory%20Batch%20Problems&f=false)
+* [5] E-Matching with Free Variables [https://pdfs.semanticscholar.org/d88d/8cf28494ce101e0b69113f63febee62ce64a.pdf](https://pdfs.semanticscholar.org/d88d/8cf28494ce101e0b69113f63febee62ce64a.pdf)
+* [6] [https://disser.spbu.ru/files/disser2/disser/LKfkdgQnht.pdf](https://disser.spbu.ru/files/disser2/disser/LKfkdgQnht.pdf) page 27
+* [7] W.W. McCune (1997). "Solution of the Robbins Problem". Journal of Automated Reasoning. 19 (3). [http://www.springerlink.com/content/h77246751668616h/](http://www.springerlink.com/content/h77246751668616h/)
+* [8] Gina Kolata (December 10, 1996). "Computer Math Proof Shows Reasoning Power". The New York Times. Retrieved 2008-10-11. [https://www.nytimes.com/library/cyber/week/1210math.html](https://www.nytimes.com/library/cyber/week/1210math.html)
+* [9] Sutcliffe, Geoff. "The TPTP Problem Library for Automated Theorem Proving". Retrieved 8 September 2012. [http://www.cs.miami.edu/~tptp/](http://www.cs.miami.edu/~tptp/)
+* [10] Method of analytic tableaux [https://en.wikipedia.org/wiki/Method_of_analytic_tableaux](https://en.wikipedia.org/wiki/Method_of_analytic_tableaux)
+* [11] Resolution (logic) [https://en.wikipedia.org/wiki/Resolution_(logic)](https://en.wikipedia.org/wiki/Resolution_(logic))
+* [http://www.cadeinc.org/](http://www.cadeinc.org/)
+* [http://ijcar.org/](http://ijcar.org/)
+* [https://en.wikipedia.org/wiki/Automated_theorem_proving](https://en.wikipedia.org/wiki/Automated_theorem_proving)
 
 ### Links ###
 
