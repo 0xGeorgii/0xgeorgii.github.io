@@ -241,33 +241,33 @@ In CASC-J9, however, Grackle is used only to develop E strategies and the main d
 
 | Name | Area | Method | Website |
 | --- | --- | --- | --- |
-| Stallax 3.2 | Hight order theorems (HOL high order logic) | Complete ground tableau calculus for higher-order logic | http://satallaxprover.org/ |
-| Leo-III | Hight order theorems (HOL high order logic) | https://github.com/leoprover/Leo-III |
-| LEO-II | Hight order theorems (HOL high order logic) | extensional higher-order resolution | www.leoprover.org / https://github.com/leoprover/LEO-II |
-| Vampire | (Typed) First-order Theorems | implements the calculi of ordered binary resolution and superposition for handling equality	http://vprover.org/ |
-| CVC4 | (Typed) First-order Theorems | based on E-matching [5] for theorems, and finite model finding approaches for non-theorems	https://github.com/CVC4 |
-| Princess | (Typed) First-order Theorems | free-variable tableau calculus | http://www.philipp.ruemmer.org/princess.shtml |
-| E	| First-order Theorems | resolution | https://wwwlehre.dhbw-stuttgart.de/~sschulz/E/E.html |
-| leanCoP 2.2	| First-order Theorems | connection (tableau) calculus | http://www.leancop.de/ |
-| nanoCoP | First-order Theorems | non-clausal connection calculus | http://www.leancop.de/nanocop/ |
+| Stallax 3.2 | Hight order theorems (HOL high order logic) | Complete ground tableau calculus for higher-order logic | [http://satallaxprover.org/](http://satallaxprover.org/) |
+| Leo-III | Hight order theorems (HOL high order logic) | [https://github.com/leoprover/Leo-III](https://github.com/leoprover/Leo-III) |
+| LEO-II | Hight order theorems (HOL high order logic) | extensional higher-order resolution | [www.leoprover.org](www.leoprover.org) / [https://github.com/leoprover/LEO-II](https://github.com/leoprover/LEO-II) |
+| Vampire | (Typed) First-order Theorems | implements the calculi of ordered binary resolution and superposition for handling equality	[http://vprover.org/](http://vprover.org/) |
+| CVC4 | (Typed) First-order Theorems | based on E-matching [5] for theorems, and finite model finding approaches for non-theorems	[https://github.com/CVC4](https://github.com/CVC4) |
+| Princess | (Typed) First-order Theorems | free-variable tableau calculus | [http://www.philipp.ruemmer.org/princess.shtml](http://www.philipp.ruemmer.org/princess.shtml) |
+| E	| First-order Theorems | resolution | [https://wwwlehre.dhbw-stuttgart.de/~sschulz/E/E.html](https://wwwlehre.dhbw-stuttgart.de/~sschulz/E/E.html) |
+| leanCoP 2.2	| First-order Theorems | connection (tableau) calculus | [http://www.leancop.de/](http://www.leancop.de/) |
+| nanoCoP | First-order Theorems | non-clausal connection calculus | [http://www.leancop.de/nanocop/](http://www.leancop.de/nanocop/) |
 | CSE | First-order Theorems | Custom binary resolution | |
-| Prover9 | First-order Theorems | resolution/paramodulation prover for first-order logic with equality | https://www.cs.unm.edu/~mccune/prover9/ |
-| Twee | First-order Theorems | resolution | http://nick8325.github.io/twee/ |
-| Geo-III | First-order Theorems | reduction to Kleene Logic | https://cs-sst.github.io/faculty/nivelle/implementation/index |
-| MaLARea | Large Theory Batch Problems | Mixed system complementary with AI techniques | https://github.com/JUrban/MPTP2 |
-| Grakle | Large Theory Batch Problems | https://github.com/ai4reason/atpy |
+| Prover9 | First-order Theorems | resolution/paramodulation prover for first-order logic with equality | [https://www.cs.unm.edu/~mccune/prover9/](https://www.cs.unm.edu/~mccune/prover9/) |
+| Twee | First-order Theorems | resolution | [http://nick8325.github.io/twee/](http://nick8325.github.io/twee/) |
+| Geo-III | First-order Theorems | reduction to Kleene Logic | [https://cs-sst.github.io/faculty/nivelle/implementation/index](https://cs-sst.github.io/faculty/nivelle/implementation/index) |
+| MaLARea | Large Theory Batch Problems | Mixed system complementary with AI techniques | [https://github.com/JUrban/MPTP2](https://github.com/JUrban/MPTP2) |
+| Grakle | Large Theory Batch Problems | [https://github.com/ai4reason/atpy](https://github.com/ai4reason/atpy) |
 
 #### Some additions provers [6] ####
 
 | Name | Method | Website |
 | --- | --- | --- |
-| Gandalf | Maslov's inverse method | http://deepthought.ttu.ee/it/gandalf/ |
-| JProver | non-clausal connection calculus | https://github.com/coqcontribs/jprover/, http://metaprl.org/install.html |
-| ileanCoP | clausal connection calculus | http://www.leancop.de/ileancop/ |
-| ileanTaP | Semantic tableau method | http://www.leancop.de/ileancop/ |
-| ileanSeP | Analytical tableau method modification | http://www.leancop.de/ileancop/ |
-| Imogen | Maslov's inverse method | https://github.com/seanmcl/imogen |
-| nanoCoP-i | non-clausal connection calculus | http://www.leancop.de/nanocop-i/index.html |
+| Gandalf | Maslov's inverse method | [http://deepthought.ttu.ee/it/gandalf/](http://deepthought.ttu.ee/it/gandalf/) |
+| JProver | non-clausal connection calculus | [https://github.com/coqcontribs/jprover/](https://github.com/coqcontribs/jprover/), [http://metaprl.org/install.html](http://metaprl.org/install.html) |
+| ileanCoP | clausal connection calculus | [http://www.leancop.de/ileancop/](http://www.leancop.de/ileancop/) |
+| ileanTaP | Semantic tableau method | [http://www.leancop.de/ileancop/](http://www.leancop.de/ileancop/) |
+| ileanSeP | Analytical tableau method modification | [http://www.leancop.de/ileancop/](http://www.leancop.de/ileancop/) |
+| Imogen | Maslov's inverse method | [https://github.com/seanmcl/imogen](https://github.com/seanmcl/imogen) |
+| nanoCoP-i | non-clausal connection calculus | [http://www.leancop.de/nanocop-i/index.html](http://www.leancop.de/nanocop-i/index.html) |
 
 ## References ##
 
