@@ -36,7 +36,7 @@
 - [Networking](#networking)
   - [When multiple VNets make sense](#when-multiple-vnets-make-sense)
   - [VNet-to-VNet VPN](#vnet-to-vnet-vpn)
-  - [VNet-to-VNet VPN Points to Ponder](#vnet-to-vnet-vpn-points-t-ponder)
+  - [VNet-to-VNet VPN Points to Ponder](#vnet-to-vnet-vpn-points-to-ponder)
   - [Inter-VNet troubleshooting tips](#inter-vnet-troubleshooting-tips)
   - [Troubleshooting](#troubleshooting)
   - [Things to Keep in Mind Regarding Networking](#things-to-keep-in-mind-regarding-networking)
@@ -52,52 +52,52 @@
 ### Why cloud? ###
 
 - CapEx vs. OpEx
-  - CapEx - Capital expenditure or capital expense (capex or CAPEX) is the money a company spends to buy, maintain, or improve its fixed assets, such as buildings, vehicles, equipment, or land.
-  - OpEx - An operating expense, operating expenditure, operational expense, operational expenditure or OpEx is an ongoing cost for running a product, business, or system
+  - [CapEx](https://www.investopedia.com/terms/c/capitalexpenditure.asp) - Capital expenditure or capital expense (capex or CAPEX) is the money a company spends to buy, maintain, or improve its fixed assets, such as buildings, vehicles, equipment, or land.
+  - [OpEx](https://en.wikipedia.org/wiki/Operating_expense) - An operating expense, operating expenditure, operational expense, operational expenditure or OpEx is an ongoing cost for running a product, business, or system
 - How old is your technology?
 - How flexible is your infrastructure?
-- How much redundancy do you have?
-- How well do you scale?
+- How much [redundancy](https://en.wikipedia.org/wiki/Redundancy_(engineering)) do you have?
+- How well do you [scale](https://en.wikipedia.org/wiki/Scalability)?
 
 ### Elements of the Cloud Computing Model ###
 
-- Elasticity
+- [Elasticity](https://sdqweb.ipd.kit.edu/publications/pdfs/HeKoRe2013-ICAC-Elasticity.pdf)
   - Dynamically adjust to service demand
   - Short-term strategy
-- Scalability
+- [Scalability](https://en.wikipedia.org/wiki/Scalability)
   - Vertical and horizontal
   - Long-term strategy
-- Pooling
+- [Pooling](https://blogs.technet.microsoft.com/yungchou/2013/08/08/resource-pooling-virtualization-fabric-and-cloud/)
   - Compute, storage, network
   - Services "on tap"
   - Pay only for what you use
-- Provisioning
+- [Provisioning](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal)
   - Self-service
   - RBAC - Role Based Access Control
   
   ### Cloud Infrastructure Models ###
   
-- Public
+- [Public](https://azure.microsoft.com/en-us/overview/what-is-a-public-cloud/)
   - All services exist in the internet
   - Multi-tenancy
   - Azure
-- Private
+- [Private](https://azure.microsoft.com/en-us/overview/what-is-a-private-cloud/)
   - All services exists in the private network complex
   - System center
   - Azure Stack
-- Hybrid
+- [Hybrid](https://azure.microsoft.com/en-in/overview/what-is-hybrid-cloud-computing/)
   - Secure, private connection between public and private clouds
   - VPN or ExpressRoute
   
   ### Cloud Deliver Models ###
   
- - SaaS
+ - [SaaS](https://azure.microsoft.com/en-us/overview/what-is-saas/)
    - Target: Office 365
- - PaaS
-	 - Target:
-	   - Developer
+ - [PaaS](https://azure.microsoft.com/en-us/overview/what-is-paas/)
+   - Target:
+     - Developer
      - Azure App Service
-- IaaS
+- [IaaS](https://azure.microsoft.com/en-us/overview/what-is-iaas/)
   - Target:
     - Sysadmin
     - Azure Virtual Machines
