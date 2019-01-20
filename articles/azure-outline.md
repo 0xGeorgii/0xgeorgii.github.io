@@ -46,6 +46,23 @@
   - [Azure VNet Design Best Practices](#azure-vnet-design-best-practices)
   - [Network Security Groups](#network-security-groups)
   - [VM IP addressing best practices](#vm-ip-addressing-best-practices)
+- [Security](#security)
+  - [Terminology](#terminology)
+  - [Access Concepts](#access-concepts)
+  - [Things to Keep in Mind Regarding Security](#things-to-keep-in-mind-regarding-security)
+  - [Protect the Storage Subsystem](#protect-the-storage-subsystem)
+  - [Roles](#roles)
+  - [Azure Resource Manager Policies](#azure-resource-manager-policies)
+  - [Data Plane Security](#data-plane-security)
+  - [Encryption in Transit](#encryption-in-transit)
+  - [Encryption at Rest](#encryption-at-rest)
+  - [Storage Analytics](#storage-analytics)
+  - [Firewall](#firewall)
+  - [Antimalware](#antimalware)
+  - [Azure Security Center](#azure-security-center)
+  - [ASC policy component](#asc-policy-component)
+  - [Azure activity log](#azure-activity-log)
+  - [Patch Management for Azure VMs](#patch-management-for-azure-vms)
 
 ## Foundational Concepts ##
 
@@ -475,3 +492,217 @@ Host - is hardware host, HyperV VM
 - If a VM doesn't need a public IP address (PIP), then don't assign one and use an Azure load balancer instead
 - Plan your VNet private address space to avoid overlap
 - Never configure networking from within the VM
+
+## Security ##
+
+### Terminology ###
+
+*Asset* - people, property, or information (databases, software, code, company records)
+
+*Threat* - person or process that can exploit a vulnerability (intentionally or accidentally) to obtain, damage or destroy an asset
+
+*Vulnerability* - weakness or gap in a security program that can be exploited by threats to gain unauthorized access to an asset
+
+*Risk* - the potential for loss, damage, or destruction of an asset as a result of a threat exploiting a vulnerability
+
+### Access Concepts ###
+
+- Least privilege
+  - Limiting resource access to what is necessary and no more (scope permissions)
+- RBAC
+  - Regulating resource access based on job role
+
+### Things to Keep in Mind Regarding Security ###
+
+- Azure conforms with many compliance certs
+- Leverage defence in depth
+- You can get Microsoft's permissions to run pen tests
+- Consider virtual network security appliances
+- Control routing behaviour
+- Enable azure security center
+
+- Logically segment subnets
+  - Use NSGs for inter-subnet traffic
+- Control routing
+  - Consider virtual network appliances
+- Enable forced tunneling
+  - Constrain outbound VM traffic
+- Disable RDP/SSH
+  - Employ VPNs and jump box
+- Web Application Firewall
+  - Centralised web application protection from common exploits and vulnerabilities
+- DDoS Protection
+  - Always-on traffic monitoring and real-time DDoS mitigation
+- Azure Security Center
+  - Unify security management and enable advanced threat protection
+
+
+### Protect the Storage Subsystem ###
+
+- Protecting the storage account itself
+  - Managed disk storage vs. traditional storage account
+- RBAC
+  - Simplify it AMAP
+- Storage account keys (use for traditional storage accounts)
+  - 512-bit string created by Azure
+  - Key rollover
+  - Azure Key Vault
+    - Secret protection store
+
+#### Role based access control (RBAC) ####
+regulating resource access based on job role. It is a granular, role-based resource access to users, groups, and applications.
+
+### Roles ###
+
+- Owner
+  - Full access
+- Contributor
+  - Full resource access but no grant/revoke privileges
+- Reader
+  - Read-only resource access
+- Custom
+  - Defined programmatically with JSON, PS, CLI or REST API
+
+### Azure Resource Manager Policies ###
+
+- RBAC focuses on user actions at different scopes
+- ARM policies focus on resource properties during deployment
+  - Require tags for cost center management
+  - Constrain resources to particular regions
+- Create policy definitions with JSON
+  - New-AzureRmPolicyDefinition
+  - New-AzureRmPolicyAssignment
+		
+### Data Plane Security ###
+
+- Protecting storage account services
+  - Blobs, files, queues, tables
+- Shared access signatures (SAS)
+  - Time-limited URIs
+  - CRUD
+- Stored Access Policies
+  - Standardised, reusable SAS rules
+
+### Encryption in Transit ###
+
+- Enable HTTPS
+  - App Services apps
+  - IaaS web apps
+  - Blob service URIs
+- SMB 3.0 encryption in Azure File Share service
+- Client-side encryption
+  - Protects user app data before it's uploaded to Azure
+  - Accessed through the Azure SDK libraries
+
+### Encryption at Rest ###
+
+- Storage Service Encryption (SSE)
+  - On-the-fly storage account encryption
+- Azure Disk Encryption
+  - BitLocker for Windows Server VM OS and data disks
+  - DM-Crypt for Linux VM disks
+
+### Storage Analytics ###
+
+- Storage account logging and metrics data
+  - Storage Analytics metrics are available for the Blob, Queue, Table, and File services
+  - Storage Analytics logging is available for the Blob, Queue, and Table services. However, premium storage account is not supported
+  - Storage accounts with a replication type of Zone-Redundant Storage (ZRS) do not have the metrics or logging capability enabled at this time
+- Requests
+  - Successful and failed access
+  - SAS requests
+  - Request for analytics data
+- Accessible (as always) through REST API
+
+### Firewall ###
+
+- NSG
+  - Can be attached to vNIC or vNet subnet
+- Software Firewall
+  - May or may not be necessary
+  - More restrictive rules than NSG (cant overwrite NGS rules)
+- Virtual Appliances
+  - VM images from leading third-party OEMs
+
+### Antimalware ###
+
+- VM Extensions
+  - Microsoft Monitoring Agent
+  - Third-party partners
+- Antimalware Assessment
+  - Part of Security & Compliance management solution
+  - [Azure security center](https://docs.microsoft.com/en-us/azure/security-center/security-center-partner-integration)
+			Azure Security Center makes it easy to enable integrated third-party partner security solutions. Benefits include:
+    - Simplified deployment: Security Center offers streamlined provisioning of integrated partner solutions. For solutions like antimalware and vulnerability assessment, Security Center can provision the needed agent on your virtual machines. For firewall appliances, Security Center can take care of much of the network configuration required.
+    - Integrated detections: Security events from partner solutions are automatically collected, aggregated, and displayed as part of Security Center alerts and incidents. These events also are correlated with detections from other sources to provide advanced threat detection capabilities.
+    - Unified health monitoring and management: Integrated health events provide monitoring of all partner solutions at a glance. Basic management is available, with easy access to advanced setup using the partner solution.
+    - Currently, integrated security solutions include:
+      - Endpoint protection such as Trend Micro, Symantec, System Center Endpoint Protection (SCEP), and Windows Defender
+      - Web application firewalls (WAF) such as Azure Application Gateway, Barracuda, F5, Fortinet, and Imperva
+      - Next-generation firewalls (NGFW) such as Barracuda, Check Point, Cisco, Fortinet, and Palo Alto Networks
+      - Vulnerability assessment such as Qualys
+- Log analytics
+
+### Azure Security Center ###
+
+Provides:
+- Unified security management
+- Advanced threat protection
+  - Machine learning and behavioral analytics
+- Protection for hybrid cloud workloads
+  - Onboard and protect Azure and on-premises resources
+
+It monitors:
+- Windows Server and Linux VMs
+  - In Azure and on-premises
+- vNets
+- Azure SQL
+- Azure storage accounts
+- Azure web apps in ASE
+- Partner solutions (WAFs)
+
+Has kind of alerts:
+- Unencrypted disks
+- Missing or out-of-date antimalware
+- Attacks:
+  - Brute force attacks against VMs
+  - Alerts from antimalware/firewall software
+  - Compromised VMs communicating with known malicious IP addresses
+  - SQL injections against Azure SQL and IaaS SQL Server databases
+
+Notes:
+- ASC provides 30-days trial period.
+- For monitoring it uses Microsoft Monitoring Agent available for Windows and Linux.
+- It stores its data in a traditional Azure storage account.
+- Forced tunneling requires selected Azure VMs to access the Internet through the on-premises network.
+- Azure uses Dm-Crypt to encrypt Linux VM OS and data disks.
+
+### ASC policy component ###
+
+Consists of:
+- Pricing tier
+- Webhooks
+- Prevention policy
+
+### Azure activity log ###
+
+- Formerly known as “audit logs”  or “operational logs”
+- Separate and distinct from diagnostic logs
+- Report control-plane events on your subscription
+- Great flexibility in query, report and export
+
+** set up security center installs Microsoft Monitoring Agent to the VMs
+ 
+### Patch Management for Azure VMs ###
+
+- WSUS (Windows Server Update Services)
+  - Local network
+  - Virtual network
+- System Center
+  - Local network
+  - Virtual network
+- Update Management Solution
+  - Part of Azure Automation service
+  - Manage updates for Windows server and Linux endpoint
+
+
