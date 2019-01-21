@@ -63,6 +63,19 @@
   - [ASC policy component](#asc-policy-component)
   - [Azure activity log](#azure-activity-log)
   - [Patch Management for Azure VMs](#patch-management-for-azure-vms)
+- [Monitoring](#monitoring)
+- [Troubleshooting and support](#troubleshooting-and-support)
+  - [Azure VM troubleshooting checklist](#azure-vm-troubleshooting-checklist)
+- [Cost management](#cost-management)
+  - [How to buy azure services](#how-to-buy-azure-services)
+  - [Azure SLA](#azure-sla)
+  - [Azure support plans](#azure-support-plans)
+- [Managed disks](#managed-disks)
+  - [Storage account limits](#storage-account-limits)
+  - [Value proposition](#value-proposition)
+  - [Managed disks facts](#managed-disks-facts)
+- [Help and support](#help-and-support)
+  - [Azure support issue types](#azure-support-issue-types)
 
 ## Foundational Concepts ##
 
@@ -705,4 +718,96 @@ Consists of:
   - Part of Azure Automation service
   - Manage updates for Windows server and Linux endpoint
 
+## Monitoring ##
 
+## Troubleshooting and support ##
+
+### Azure VM troubleshooting checklist ###
+
+- Reset
+  - Admin credentials
+  - RDP configuration
+- Verify
+  - NSG rules
+- Review
+  - Console logs
+- Check VM resource health
+- Restart
+- Redeploy
+  - Migrates VM to a new hardware host
+  - VM will be down during the migration
+- Delete
+  - Only the config, not the NIC or storage
+  - Attack disk to working VM
+  - Tweak registry
+  - Recreate
+
+## Cost management ##
+
+### How to buy azure services ###
+
+- Pay-as-You-Go
+  - No minimum spend
+  - Pay for what you use
+  - Cancel anytime
+- Enterprise agreement (EA)
+  - Advantage: forecasting
+  - Azure enterprise portal
+		
+
+Trial is not automatically converted
+Analyze resource usage
+Set billing alerts
+Consider spending limits
+
+
+### Azure SLA ###
+
+*Service-Level Agreement (SLA)* - is an official commitment between a service provider and a customer.
+
+### Azure support plans ###
+
+- Included
+  - Free
+- Developer
+  - 29$/month
+- Standard
+  - 300$/month
+- Professional direct
+  - 1,000$/month
+- Premier
+  - Contact Microsoft
+
+## Managed disks ##
+
+### Storage account limits ###
+
+- Number of storage account per subscription is 200
+- TB per storage account is 500 TB
+
+### Value proposition ###
+
+- Azure manages VHDs
+- Node direct public access
+- Disk-level RBAC
+
+- Scaling that's free of storage account limitations
+- VM scale set support
+
+- Availability set storage isolation
+
+### Managed disks facts ###
+
+- LRS only
+- Fixed sizes:
+  - Standard: 32 Gb, 64 Gb, 128 Gb, 512 Gb, 1 TB
+  - Premium: 128 Gb, 512 Gb, 1 TB
+- Can create empty managed disk
+
+## Help and support ##
+
+### Azure support issue types ###
+
+- Technical
+- Quota
+- Billing
