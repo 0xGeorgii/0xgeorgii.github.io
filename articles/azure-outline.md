@@ -64,6 +64,18 @@
   - [Azure activity log](#azure-activity-log)
   - [Patch Management for Azure VMs](#patch-management-for-azure-vms)
 - [Monitoring](#monitoring)
+  - [Three monitoring tiers](#three-monitoring-tiers)
+  - [Ways to check Azure service status](#ways-to-check-azure-service-status)
+  - [Things to Keep in Mind Regarding Azure VM Monitoring](#things-to-keep-in-mind-regarding-azure-vm-monitoring)
+  - [Tools](#tools)
+  - [Monitoring - A layer Approach](#monitoring-a-layer-approach)
+  - [Monitoring and Diagnostics Pipeline](#monitoring-and-diagnostics-pipeline)
+  - [Azure Monitor Components](#azure-monitor-components)
+  - [Azure diagnostics data](#azure-diagnostics-data)
+  - [Azure resource log](#azure-resource-log)
+  - [Monitoring - Questions of scale and intelligence](#monitoring-questions-of-scale-and-intelligence)
+  - [Log Analytics](#log-analytics)
+  - [What can you do with Webhooks](#what-can-you-do-with-webhooks)
 - [Troubleshooting and support](#troubleshooting-and-support)
   - [Azure VM troubleshooting checklist](#azure-vm-troubleshooting-checklist)
 - [Cost management](#cost-management)
@@ -720,6 +732,165 @@ Consists of:
 
 ## Monitoring ##
 
+### Three monitoring tiers ###
+
+- Resource health
+- Monitor Center
+- Log Analytics and Operations Management suite (OMS)
+
+### Ways to check Azure service status ###
+
+- [Twitter](https://twitter.com/azurestatus)
+- [Azure site](https://azure.microsoft.com/en-us/status/)
+- Service health on the Azure portal
+
+### Things to Keep in Mind Regarding Azure VM Monitoring ###
+
+- You're free to use native tools (PerfMon, ps)
+- With hybrid cloud, you can use System Center
+- Take Azure into account when evaluating mon. solution
+- OMS (operation management suit) is a tightly integrated solution
+- Learn about webhooks, REST, and SQL
+- Consider streaming data via Event Hub
+
+** Log analytics sets inside an OMS workspace which has a free tier option
+
+### Tools ###
+
+#### Infrastructure provides ####
+
+- Application logs and metrics
+- Diagnostic logs
+- Metrics
+- Activity log
+
+#### Analysing tools ####
+
+- Visualize
+  - Graphics
+  - Portal views
+  - Dashboards
+  - Charts
+- Archive
+  - Store in blob storage
+  - Audit trail
+  - Security analysis
+- Query
+  - REST API
+  - CLI
+  - PowerShell
+- Route
+  - Streaming
+  - Notification service
+- Automate
+  - Webhooks
+  - Autoscale
+  - Azure automation
+  - Azure runbooks
+		
+
+### Monitoring - A layer Approach ###
+
+- Resource level
+  - Internal tools
+  - Metrics, alert rules
+- Resource group level
+  - Monitor blade
+- Enterprise level
+  - Hybrid nodes
+  - Log analytics
+  - Azure automation
+
+*Telemetry* - is an automated communications process by which measurements and other data are collected at remote or inaccessible points and transmitted to receiving equipment for monitoring.
+
+### Monitoring and Diagnostics Pipeline ###
+
+<img src="https://docs.microsoft.com/en-us/azure/architecture/best-practices/images/monitoring/pipeline.png"/>
+
+### Azure Monitor Components ###
+
+- Activity log
+  - On a Resource Group scale
+- Metrics
+  - Plot data points to a custom, sharable dashboard
+- Diagnostic logs
+  - Aggregated data can be analyzed with Power BI
+- Alerts
+  - Get notified when metrics exceed threshold values
+  - Automatic remediation (Azure automation runbook, webhook)
+
+### Azure diagnostics data ###
+
+- Event tracing
+  - Configured by app developers
+- Performance counters
+  - The 4 traditional subsystems
+- Event logs
+  - ETW
+- Application logs
+  - Configured by app developers
+- Azure diagnostics logs
+  - Table and/or blob storage
+
+### Azure resource log ###
+
+- Activity log (audit log)
+  - Records operational details
+  - "Who did what, and when" in Azure
+- Diagnostic log
+  - Performance counters
+  - Event logs (system, application, security)
+  - IIS logs
+  - Crash dump data
+  - Custom error log
+
+### Monitoring - Questions of scale and intelligence ###
+
+- Log flood
+  - So many data sources
+  - How to quickly extract value?
+- Predictive analytics
+  - How to know what to look for?
+- Automation
+  - Immediate remediation
+
+### Log Analytics ###
+
+#### Provides ####
+
+- Monitoring
+- Analysis
+- Alerting
+- Remediation
+
+#### Data sources ####
+
+- Counters
+- Logs
+- App Insights
+- Agent devices (cloud and on-prem)
+- SCOM management groups
+
+[Log Analytics query syntax](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/query-language)
+
+#### The need for an alerting solution ####
+
+- Avoiding surprises
+- Email, SMS
+- Third-party security and event management (SIEM)
+- Azure integration is eminently possible
+
+*Webhook* - is a way for an app to provide other applications with real-time information. Also called a web callback or an HTTP push API. The payload is ordinarily JSON.
+
+### What can you do with Webhooks ###
+
+- Third-party integrations
+  - PagerDuty, OpsGenie, VictorOps, Slack, HipChat, Campfire, etc.…
+- Script execution
+  - Azure automation runbooks
+- SMS text
+  - Twilio API
+ 
 ## Troubleshooting and support ##
 
 ### Azure VM troubleshooting checklist ###
