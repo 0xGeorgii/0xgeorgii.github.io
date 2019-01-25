@@ -151,12 +151,12 @@ A region is a set of Azure data centers in a named geographic location. Every Az
 
 ### Which Model is Best For Your Workload? ###
 
-- PaaS
+- [PaaS](https://azure.microsoft.com/en-us/overview/what-is-paas/)
   - Higher agility
   - Higher ease of management
   - Lower degree of control
   - Lower support for legacy apps
-- IaaS (VM's)
+- [IaaS](https://azure.microsoft.com/en-us/overview/what-is-iaas/) (VM's)
   - Higher degree of control
   - Higher support for legacy apps
   - Lower ease of management
@@ -164,26 +164,26 @@ A region is a set of Azure data centers in a named geographic location. Every Az
   
 ### Things to Keep in Mind Regarding Azure VMs ###
   
-- Unless the VM is deallocated, it still incurs charge
-- Deleting the VM doesn't delete the managed disk
+- Unless the VM is deallocated, it still incurs [charge](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/)
+- Deleting the VM doesn't delete the [managed disk](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/virtual-machines-managed-disks-overview.md)
 - Related assets are charged separately
-- You can't connect without an NSG (network security group) rule
-- You can't connect to VMs in other virtual networks
-- DNS names require creativity and should be standardized
+- You can't connect without an [NSG](https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group) (network security group) rule
+- You can't connect to VMs in other [virtual networks](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
+- [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) names require creativity and should be standardized
 
 ### Virtual Machine Resources ###
 
-- SRP (storage resource provider)
-  - Disk (blob)
-  - Storage account
-- CRP (compute resource provider)
-  - Virtual machine
-  - Availability set
-- NRP (network resource provider)
-  - VM IP address
-  - Virtual network
-  - NSG
-  - Load balancer
+- [SRP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services) (storage resource provider)
+  - [Disk](https://azure.microsoft.com/en-us/services/storage/disks/) (blob)
+  - [Storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview)
+- [CRP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services) (compute resource provider)
+  - [Virtual machine](https://azure.microsoft.com/en-us/services/virtual-machines/)
+  - [Availability set](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability)
+- [NRP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services) (network resource provider)
+  - [VM IP address](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-deploy-static-pip-arm-portal)
+  - [Virtual network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
+  - [NSG](https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group)
+  - [Load balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)
   
 Scale refers to adding network bandwidth, memory, storage, or compute power to achieve better performance.
 
@@ -191,35 +191,35 @@ Scaling up, or vertical scaling, means to increase the memory, storage, or compu
 
 Scaling out, or horizontal scaling, means to add extra virtual machines to power your application. For example, you might create many virtual machines configured in exactly the same way and use a load balancer to distribute work across them.
 
-Azure Advisor and Azure Cost Management are two services that help you optimize cloud spend. You can use these services to identify where you're using more than you need, and then scale back to the capacity you're actually using.
+[Azure Advisor](https://azure.microsoft.com/en-us/services/advisor/) and [Azure Cost Management](https://azure.microsoft.com/en-us/services/cost-management/) are two services that help you optimize cloud spend. You can use these services to identify where you're using more than you need, and then scale back to the capacity you're actually using.
 
 ### Azure VMs base types ###
 
 Type | Sizes | Description
 --- | --- | ---
-General purpose | Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7 | Balanced CPU-to-memory. Ideal for dev/test and small to medium applications and data solutions.
-Compute optimized | Fs, F | High CPU-to-memory. Good for medium-traffic applications, network appliances, and batch processes.
-Memory optimized | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.
-Storage optimized | Ls | High disk throughput and IO. Ideal for big data, SQL, and NoSQL databases.
-GPU optimized | NV, NC | Specialized VMs targeted for heavy graphic rendering and video editing.
-High performance | H, A8-11 | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA).
+[General purpose](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-general) | Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7 | Balanced CPU-to-memory. Ideal for dev/test and small to medium applications and data solutions.
+[Compute optimized](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-compute) | Fs, F | High CPU-to-memory. Good for medium-traffic applications, network appliances, and batch processes.
+[Memory optimized](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-sizes-memory) | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.
+[Storage optimized](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-sizes-storage) | Ls | High disk throughput and IO. Ideal for big data, SQL, and NoSQL databases.
+[GPU optimized](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu) | NV, NC | Specialized VMs targeted for heavy graphic rendering and video editing.
+[High performance](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-hpc) | H, A8-11 | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA).
 
 ### Connect to Windows VMs ###
 
-- RDP
-  - TCP 3389
-  - relies upon the NSG
-- PowerShell
-  - TCP 5985/5986
+- [RDP](https://docs.microsoft.com/en-us/windows/desktop/TermServ/remote-desktop-protocol)
+  - [TCP](https://tools.ietf.org/html/rfc793) 3389
+  - relies upon the [NSG](https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group)
+- [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-6)
+  - [TCP](https://tools.ietf.org/html/rfc793) 5985/5986
 
 ### Connect to Linux VMs ###
 
-- Secure Shell (SSH)
+- Secure Shell ([SSH](https://www.ietf.org/rfc/rfc4253.txt))
   - Industry standard, secure remote access protocol
-- Authentication
+- [Authentication](https://www.cryptomathic.com/news-events/blog/digital-authentication-the-basics)
   - Password or keys
-- RDP
-  - Install a desktop environment, RDP server, and create an NSG rule
+- [RDP](https://docs.microsoft.com/en-us/windows/desktop/TermServ/remote-desktop-protocol)
+  - Install a desktop environment, [RDP server](http://www.xrdp.org/), and [create an NSG rule](https://docs.microsoft.com/en-us/cli/azure/network/nsg/rule?view=azure-cli-latest)
 
 ## Storage ##
 
