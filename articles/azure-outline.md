@@ -229,40 +229,40 @@ Type | Sizes | Description
 - Premium disks aren't charged by transaction
 - Azure holds an infinite lease on page blobs
 - Blob storage namespace is flat
-- Premium storage supports only LRS
-- 99.9% read/write availability SLA
+- Premium storage supports only [LRS](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-lrs)
+- 99.9% read/write availability [SLA](https://azure.microsoft.com/en-us/support/legal/sla/)
 
 ### Azure Storage Types ###
 
-- Blob - unstructured file data.
+- [Blob](https://azure.microsoft.com/en-us/services/storage/blobs/) - unstructured file data.
   - A collection of binary data stored as a single entity in a storage system. Blobs are typically images, audio or other multimedia objects, or binary executable code. VM VHDs are stored as page blobs. 
-- Table - NoSQL semi-structured data
-- Queue - pub\sub messaging data
-- File storage - SMB file shares
+- [Table](https://azure.microsoft.com/en-us/services/storage/tables/) - NoSQL semi-structured data
+- [Queue](https://azure.microsoft.com/en-us/services/storage/queues/) - pub\sub messaging data
+- [File storage](https://azure.microsoft.com/en-us/services/storage/files/) - SMB file shares
 
 ### Replication Options ###
 
-- LRS Locally redundant storage
+- [LRS](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-lrs) Locally redundant storage
   - 3 copies withn single data center in single region
   - For premium storage only
-- ZRS Zore redundant storage
+- [ZRS](https://azure.microsoft.com/en-us/blog/azure-zone-redundant-storage-in-public-preview/) Zore redundant storage
   - 3 copies across 2-3 data centers in single region
   - block blobs only; available only during SA creation
   - available only at VM creation
-- GRS Geo redundant storage
+- [GRS](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs) Geo redundant storage
   - 3 copies in primary region
   - 3 copies in secondary region
-- RA-GRS Read-Access geo redundant storage
+- [RA-GRS](https://docs.microsoft.com/en-us/azure/storage/common/storage-designing-ha-apps-with-ragrs) Read-Access geo redundant storage
   - RO access to secondary region data
 
 ### Azure VM Disk Types ###
 
-- OS Disks
+- [OS Disks](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/about-disks-and-vhds#operating-system-disk)
   - Fixed disk VHD files stored as page blobs
   - Generation 1 (VHD) // Generation 2 is VHDx format
   - Registered as SATA
   - Maximum size 1023 GB (1TB)
-- Data Disks
+- [Data Disks](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/about-disks-and-vhds#data-disk)
   - D: is a temporary disk that holds pagefile/swapfile
   - Attached VHD
   - Registered as SCSI
@@ -270,12 +270,12 @@ Type | Sizes | Description
 
 ### Azure Storage Account Types ###
 
-- Standard
+- [Standard](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/standard-storage)
   - HDD
   - Default for some instances sizes; others use SSD
   - IOPS values represent maximum values (IOPS input-ouput per second)
   - Can use any redundancy option ()Premium is LRS only)
-- Premium
+- [Premium](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance)
   - SSD
   - OIPS alues represent expected performance levels (not maximum)
   - Great for I/O intensive workloads like Dynamics, Exchange Server, SQL server
@@ -287,19 +287,19 @@ Type | Sizes | Description
 
 Associate a storage account with a VNet
 Limit access to storage account from VNet
-NAT rules to support on-premises connection (NAT network address rules)
+[NAT](https://tools.ietf.org/html/rfc4787) rules to support on-premises connection (NAT network address rules)
 
 ### Host Caching ###
 
 Host - is hardware host, HyperV VM
 
-- None
+- [None](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#disk-caching)
   - Disable on IaaS DCs
   - Good for random I/O
-- Read only
+- [Read only](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#disk-caching)
   - Write-through
   - Stored on disk and RAM of host OS
-- Read\write
+- [Read\write](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#disk-caching)
   - Write-back
   - Stored in memory of host OS
 
