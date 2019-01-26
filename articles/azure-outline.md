@@ -225,11 +225,11 @@ Type | Sizes | Description
 
 ### Things to Keep in Mind Regarding Azure Storage for IaaS VMs ###
 
-- Standard disks cost per transaction and per GB
-- Premium disks aren't charged by transaction
+- [Standard disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/) cost per transaction and per GB
+- [Premium disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/) aren't charged by transaction
 - Azure holds an infinite lease on page blobs
-- Blob storage namespace is flat
-- Premium storage supports only [LRS](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-lrs)
+- [Blob](https://azure.microsoft.com/en-us/services/storage/blobs/) storage namespace is flat
+- [Premium storage](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage) supports only [LRS](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-lrs)
 - 99.9% read/write availability [SLA](https://azure.microsoft.com/en-us/support/legal/sla/)
 
 ### Azure Storage Types ###
@@ -244,7 +244,7 @@ Type | Sizes | Description
 
 - [LRS](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-lrs) Locally redundant storage
   - 3 copies withn single data center in single region
-  - For premium storage only
+  - For [premium storage](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage) only
 - [ZRS](https://azure.microsoft.com/en-us/blog/azure-zone-redundant-storage-in-public-preview/) Zore redundant storage
   - 3 copies across 2-3 data centers in single region
   - block blobs only; available only during SA creation
@@ -274,13 +274,13 @@ Type | Sizes | Description
   - HDD
   - Default for some instances sizes; others use SSD
   - IOPS values represent maximum values (IOPS input-ouput per second)
-  - Can use any redundancy option ()Premium is LRS only)
+  - Can use any redundancy option (Premium is [LRS](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-lrs) only)
 - [Premium](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance)
   - SSD
   - OIPS alues represent expected performance levels (not maximum)
   - Great for I/O intensive workloads like Dynamics, Exchange Server, SQL server
   - Not available in all Azure regions
-  - Need a DS-, DSv2-, GS-, or FS-series VM
+  - Need a [DSv2](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-general#dsv2-series)-, [DSv3](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-general#dsv3-series-sup1sup)-, [GS](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory#gs-series)-, or [FS](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-compute#fs-series-sup1sup)-series VM
   - Available in 3 sizes (128 GB, 512 GB, or 1024 GB)
 
 ### Virtual Network Service Endpoints ###
@@ -307,66 +307,65 @@ Host - is hardware host, HyperV VM
 
 ### Things to Keep in Mind Regarding Azure VMs Configuration ###
 
-- NSG rules
-- Need availability sets for 99.95% SLA
-- Premium storage offers 99.9% for single VMs
-- Shared responsibility model
-- Combine Azure Load Balancer with Avail. Sets
-- Use separate storage accounts for each VM
+- [NSG rules](https://blogs.msdn.microsoft.com/igorpag/2016/05/14/azure-network-security-groups-nsg-best-practices-and-lessons-learned/)
+- Need [availability sets](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-availability-sets) for 99.95% [SLA](https://azure.microsoft.com/en-us/support/legal/sla/)
+- [Premium storage](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage) offers 99.9% for single VMs
+- [Shared responsibility model](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/18/what-does-shared-responsibility-in-the-cloud-mean/)
+- Combine [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview) with [Avail. Sets](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-availability-sets)
+- Use separate [storage accounts](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) for each VM
 	
-** to connect to an Azure-based VM that isn't in your Active Directory domain add an entry to workstation's Trusted Hosts list.
+** to connect to an Azure-based VM that isn't in your [Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) domain add an entry to workstation's Trusted Hosts list.
 
 ## Scaling and High Availability ##
 
 ### Things to Keep in Mind Regarding Scaling and High Availability ###
 
-- Group related VMs into availability sets
-- Combine a load balancer with availabiilty sets
-- Use separate storage accounts for each AS
-- Consider Scale Sets for bigger compute jobs
-- Know that AS and SS both incur runtime charges
-- Premium storage supports single-instance SLA
+- Group related VMs into [availability sets](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-availability-sets)
+- Combine a load balancer with [availabiilty sets](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-availability-sets)
+- Consider [Scale Sets](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview) for bigger compute jobs
+- Know that [AS](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-availability-sets) and [SS](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview) both incur runtime charges
+- Premium storage supports single-instance [SLA](https://azure.microsoft.com/en-us/support/legal/sla/)
 
 ### Azure Maintenance Events ###
 
-- Planned - the azure team gives you advances notification
+- [Planned](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/scheduled-events) - the azure team gives you advances notification
 - Unplanned - rack - or datacenter-level failures
 
 ### Fault and Update Domains ###
 
-- Fault domains are VMs that share the same power source and switch
+- [Fault domains](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) are VMs that share the same power source and switch
   - 3 fault domains available
-- Update domains are VMs that share the same hardware host
+- [Update domains](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) are VMs that share the same hardware host
   - 5-20 update domain available
-- Place VMs of each app tier into their own availability sets
+- Place VMs of each app tier into their own [availability sets](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-availability-sets)
 
 ** Availability set can be configured only when creating a VM workaround can be done via PS
 
 ### VM scale set ###
 
-- Platform-independent PaaS
-  - Azure App Service is known for elastic auto scaling
+- Platform-independent [PaaS](https://azure.microsoft.com/en-us/overview/what-is-paas/)
+  - [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/) is known for elastic [auto scaling](https://azure.microsoft.com/en-us/features/autoscale/)
 - Method for:
   - Deploying and managing Azure VMs as a set
-  - Scalable compute platform
+  - [Scalable compute platform](https://azure.microsoft.com/en-us/solutions/big-compute/)
 - Integrated with:
-  - Azure load balancer
-  - Azure auto scale
+  - [Azure load balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)
+  - [Azure auto scale](https://azure.microsoft.com/en-us/features/autoscale/)
 
-** scale set 
+** scale set
 
 ### Scale set use cases ###
 
-- Hyperscale workloads
+- [Hyperscale workloads](https://en.wikipedia.org/wiki/Hyperscale_computing)
 - Stateless web frontends
-- Container orchestration
-- Microservices clusters
+- [Container orchestration](https://azure.microsoft.com/en-us/blog/tag/container-orchestration/)
+- [Microservices clusters](https://azure.microsoft.com/en-in/services/service-fabric/)
 
 ### Load balancer ###
 
-- Entity which watches to the internet and distributes traffic among recipients
+- [Entity](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview) which watches to the internet and distributes traffic among recipients
 - A secure entry point to VNet
-- Works at OSI layer 4 (TCP/UDP)
+- Works at [OSI](https://docs.microsoft.com/en-us/windows-hardware/drivers/network/windows-network-architecture-and-the-osi-model) [layer 4](https://en.wikipedia.org/wiki/OSI_model#Layer_4:_Transport_Layer) (TCP/UDP)
 - Uses 5-tuple has algorithm
   - Source and destination IP
   - Source and destination port
@@ -374,14 +373,14 @@ Host - is hardware host, HyperV VM
 
 ### Application gateway ###
 
-- Works OSI layer 7 (HTTP/HTTPS)
-- SSL offload
+- [Entity](https://docs.microsoft.com/en-us/azure/application-gateway/overview) which works OSI layer 7 (HTTP/HTTPS)
+- [SSL](http://info.ssl.com/article.aspx?id=10241) offload
 
 ### Traffic manager ###
 
-- Global load balancer
-- Uses DNS
-- Geo-distributed services
+- [Global load balancer](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview)
+- Uses [DNS](https://azure.microsoft.com/en-us/services/dns/)
+- [Geo-distributed services](https://azure.microsoft.com/en-us/blog/tag/geo-distributed-applications/)
 
 ## Networking ##
 
