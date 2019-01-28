@@ -40,7 +40,7 @@
   - [Inter-VNet troubleshooting tips](#inter-vnet-troubleshooting-tips)
   - [Troubleshooting](#troubleshooting)
   - [Things to Keep in Mind Regarding Networking](#things-to-keep-in-mind-regarding-networking)
-  - [Public UP address SKUs](#public-up-address-skus)
+  - [Public IP address SKUs](#public-ip-address-skus)
   - [Azure VPN SKUs](#azure-vpn-skus)
   - [Name Resolution for Azure VNets](#name-resolution-for-azure-vnets)
   - [Azure VNet Design Best Practices](#azure-vnet-design-best-practices)
@@ -384,25 +384,27 @@ Host - is hardware host, HyperV VM
 
 ## Networking ##
 
-*Virtual Network (VNet)* - is a communications and security boundary that enables Azure resources (virtual machines, storage accounts, App Services apps, Azure SQL Database instances) to communicate with each other securely.
+*[Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) (VNet)* - is a communications and security boundary that enables Azure resources (virtual machines, storage accounts, App Services apps, Azure SQL Database instances) to communicate with each other securely.
 
 - 50-100 VNets allowed per subscription
-- Provides network isolation and segmentation
-- Name resolution (Azure-provided DNS; Azure DNS service)
-- Traffic filtering (NSGs, network virtual appliances)
+- Provides [network isolation](https://docs.microsoft.com/en-us/azure/security/azure-isolation#networking-isolation) and [segmentation](https://docs.microsoft.com/en-us/azure/security/azure-network-security)
+- Name resolution (Azure-provided DNS; [Azure DNS service](https://azure.microsoft.com/en-us/services/dns/))
+- Traffic filtering (NSGs, [network virtual appliances](https://azure.microsoft.com/en-us/solutions/network-appliances/))
 
 ### When multiple VNets make sense ###
 
 - Saving money
-  - Share a network virtual appliance among several VNets (service chaining)
+  - Share a [network virtual appliance](https://azure.microsoft.com/en-us/solutions/network-appliances/) among several [VNets](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) (service chaining)
 - Segmentation workloads
-  - NSGs and UDRs give you routing and traffic control
-- Securing traffic
+  - [NSGs](https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group) and [UDRs](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview) give you routing and traffic control
+- [Securing traffic](https://docs.microsoft.com/en-us/azure/security/azure-security-network-security-best-practices)
   - Private connectivity that uses the Microsoft backbone network
 
-*Virtual Private Network (VPN)* - is a secure connection over an unsecure medium. Azure site-to-site VPNs use IPSec/IKE tunnels
+*[Virtual Private Network](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways) (VPN)* - is a secure connection over an unsecure medium. Azure [site-to-site](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways#s2smulti) VPNs use [IPSec/IKE](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell) tunnels
 
 ### VNet-to-VNet VPN ###
+
+[Ref](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal)
 
 - Create isolation or administrative boundaries
 - Provide cross-region geo-redundancy and replication securely
@@ -411,58 +413,65 @@ Host - is hardware host, HyperV VM
 	
 ### VNet-to-VNet VPN Points to Ponder ###
 
-- Different pricing model from VNet peering
-- Make sure your VNet address spaces do not overlap
-- Global VNet peering means you no longer need a VPN gateway for cross-region connectivity
+- Different pricing model from [VNet peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)
+- Make sure your [VNet address spaces](https://blogs.msdn.microsoft.com/premier_developer/2018/10/22/understanding-cidr-notation-when-designing-azure-virtual-networks-and-subnets/) do not overlap
+- Global VNet peering means you no longer need a [VPN gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways) for cross-region connectivity
 
-** for P2S and VNet-to-VNet VPN deploy route-based Azure VPN gateway
+** for P2S and VNet-to-VNet VPN deploy route-based [Azure VPN gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 
-*Network Peering* - is a seamless connection between two Azure virtual networks. The peered networks appear as one, or connectivity purposes.
+*[Network Peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)* - is a seamless connection between two Azure virtual networks. The peered networks appear as one, or connectivity purposes.
 
 ### Inter-VNet troubleshooting tips ###
 
-- Azure blocks ICMP (Internet Communication Messaging Protocol (uses for ping)) between VNets and the internet
+- Azure blocks [ICMP](https://tools.ietf.org/html/rfc792) (Internet Communication Messaging Protocol (uses for ping)) between VNets and the internet
 - Simplify your NSGs as much as possible to reduce troubleshooting friction
 - Azure portal diagnose and solve problems/Resource Health blade is useful
-- Network watcher and network performance monitor make troubleshooting much easier
+- [Network watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) and [network performance monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor) make troubleshooting much easier
 
 ### Troubleshooting ###
 
-- tcping
-- Network watcher
+- [tcping](https://github.com/cloverstd/tcping)
+- [Network watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)
   - Enable for your azure region(s)
   - Install VM extension
-- Network performance monitor (NPM)
-  - Part of Insight & Analytics azure management solution
-  - Lag analytics workspace
-  - Microsoft monitoring agent
+- [Network performance monitor]((https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor)) (NPM)
+  - Part of [Insight](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) & [Analytics](https://azure.microsoft.com/en-us/resources/videos/azure-insight-analytics/) azure management solution
+  - [Log analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-faq) workspace
+  - [Microsoft monitoring agent](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agents-overview)
 
 ### Things to Keep in Mind Regarding Networking ###
 
-- Most regions support dual-stack IP
+- Most regions support [dual-stack IP](https://www.cisco.com/c/dam/en/us/products/collateral/ios-nx-os-software/enterprise-ipv6-solution/aag_c45-625513.pdf)
 - Reserved public IPs can be chargeable
-- Vnet-to-Vnet requires peering or VPN
+- [Vnet-to-Vnet](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) requires peering or VPN
 - Remember NSG and Windows Firewall
-- Configuring a local VPN gateway has complexity
-- Azure DNS questions
+- Configuring a local [VPN gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways) has complexity
+- [Azure DNS](https://azure.microsoft.com/en-us/services/dns/) questions
 
-### Public UP address SKUs ###
+### Public IP address SKUs ###
 
 - Basic
   - The original public IP address
   - Static or dynamic allocation
   - Assigned to any public IP-addressable resource
-  - Can be assigned to a specific availability zone
+  - Can be assigned to a specific [availability zone](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview)
   - Not zone redundant
 - Standard
   - Different price point
   - Static allocation only
-  - Assigned to vNICs or standard internet-facing load balancers
+  - Assigned to [vNICs](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface) or standard [internet-facing load balancers](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-internet-classic-cloud)
   - Zone redundant by default
 
 ### Azure VPN SKUs ###
 
-**basic, standard, high performance
+[Ref](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/)
+
+| | BANDWIDTH | S2S TUNNELS | P2S TUNNELS | 
+| --- | --- | --- | --- |
+| Basic | 100 Mbps | Max 10 1-10: Included | Max 128 1-128: Included |
+| VpnGw1 | 650 Mbps | Max 30 1-10: Included | Max 128 1-128: Included |
+| VpnGw2 | 1 Gbps | Max 30 1-10: Included | Max 128 1-128: Included |
+| VpnGw3 | 1.25 Gbps | Max 30 1-10: Included | Max 128 1-128: Included |
 
 - Basic
   - 80-100 Mbps, 99.9% SLA
@@ -477,17 +486,17 @@ Host - is hardware host, HyperV VM
 
 ### Name Resolution for Azure VNets ###
 
-- Azure-provided name resolution
+- Azure-provided [name resolution](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)
   - No configuration required
   - All VMs within a VNet can resolve each others' host names
   - Issue: cross-VNet name resolution
   - Issue: No custom DNS suffix
   - You can add custom DNS server IP addresses
   - You can host your own DNS server(s)
-- Azure DNS
+- [Azure DNS](https://azure.microsoft.com/en-us/services/dns/)
   - Host your public DNS domain in Azure
     - Use Azure geo-distributed name servers
-  - Create private DNS zones
+  - Create [private DNS zones](https://docs.microsoft.com/en-us/azure/dns/private-dns-overview)
     - Linked to VNets
     - Registration VNet
     - Resolution VNet
@@ -495,25 +504,25 @@ Host - is hardware host, HyperV VM
 ### Azure VNet Design Best Practices ###
 
 - Create subnets based on workloads
-- Bind network security groups (NSGs) at the subnet level
-- Deploy a network virtual appliance (NVA) and user-defined routes (UDRs) to further customize traffic
-- Implement site-to-site or point-to-site VPN tunnels with on-premises environment
+- Bind network security groups ([NSGs](https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group)) at the subnet level
+- Deploy a network virtual appliance ([NVA](https://azure.microsoft.com/en-us/solutions/network-appliances/)) and user-defined routes ([UDRs](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview)) to further customize traffic
+- Implement [site-to-site](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) or [point-to-site](https://docs.microsoft.com/en-us/azure/vpn-gateway/point-to-site-about) VPN tunnels with on-premises environment
 	
 ### Network Security Groups ###
 	
-  **(NSGs)
+  **([NSGs](https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group))
   **Software firewall object
 
 - Stateful firewall for inbound and outbound traffic
 - 5-tuple hash src+dst IP and ports; protocol
-- Default rules
-- Augmented rules
-- Service tags and ASGs
-- Bound to vNIC or subnet
+- [Default rules](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/defaultsecurityrules)
+- [Augmented rules](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#augmented-security-rules)
+- [Service tags and ASGs](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags)
+- Bound to [vNIC](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface) or subnet
 	
 ### VM IP addressing best practices ###
 
-- If a VM doesn't need a public IP address (PIP), then don't assign one and use an Azure load balancer instead
+- If a VM doesn't need a public IP address ([PIP](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-ip-addresses-overview-arm)), then don't assign one and use an [Azure load balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview) instead
 - Plan your VNet private address space to avoid overlap
 - Never configure networking from within the VM
 
