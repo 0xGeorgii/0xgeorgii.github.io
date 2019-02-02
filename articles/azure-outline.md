@@ -530,19 +530,19 @@ Host - is hardware host, HyperV VM
 
 ### Terminology ###
 
-*Asset* - people, property, or information (databases, software, code, company records)
+*[Asset](https://www.iso.org/standard/39066.html)* - people, property, or information (databases, software, code, company records)
 
-*Threat* - person or process that can exploit a vulnerability (intentionally or accidentally) to obtain, damage or destroy an asset
+*[Threat](https://tools.ietf.org/html/rfc2828)* - person or process that can exploit a vulnerability (intentionally or accidentally) to obtain, damage or destroy an asset
 
-*Vulnerability* - weakness or gap in a security program that can be exploited by threats to gain unauthorized access to an asset
+*[Vulnerability](https://en.wikipedia.org/wiki/Vulnerability_(computing))* - weakness or gap in a security program that can be exploited by threats to gain unauthorized access to an asset
 
-*Risk* - the potential for loss, damage, or destruction of an asset as a result of a threat exploiting a vulnerability
+*[Risk](https://en.wikipedia.org/wiki/Computer_security#Systems_at_risk)* - the potential for loss, damage, or destruction of an asset as a result of a threat exploiting a vulnerability
 
 ### Access Concepts ###
 
 - Least privilege
   - Limiting resource access to what is necessary and no more (scope permissions)
-- RBAC
+- [RBAC](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview)
   - Regulating resource access based on job role
 
 ### Things to Keep in Mind Regarding Security ###
@@ -550,36 +550,36 @@ Host - is hardware host, HyperV VM
 - Azure conforms with many compliance certs
 - Leverage defence in depth
 - You can get Microsoft's permissions to run pen tests
-- Consider virtual network security appliances
-- Control routing behaviour
-- Enable azure security center
+- Consider [virtual network security appliances](https://azure.microsoft.com/en-us/solutions/network-appliances/)
+- Control [routing behaviour](https://azure.microsoft.com/mediahandler/files/resourcefiles/security-best-practices-for-azure-solutions/Azure%20Security%20Best%20Practices.pdf)
+- Enable [azure security center](https://azure.microsoft.com/en-us/services/security-center/)
 
 - Logically segment subnets
-  - Use NSGs for inter-subnet traffic
+  - Use [NSGs](https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group) for inter-subnet traffic
 - Control routing
-  - Consider virtual network appliances
+  - Consider [virtual network appliances](https://azure.microsoft.com/en-us/solutions/network-appliances/)
 - Enable forced tunneling
-  - Constrain outbound VM traffic
-- Disable RDP/SSH
-  - Employ VPNs and jump box
-- Web Application Firewall
-  - Centralised web application protection from common exploits and vulnerabilities
-- DDoS Protection
-  - Always-on traffic monitoring and real-time DDoS mitigation
-- Azure Security Center
-  - Unify security management and enable advanced threat protection
+  - Constrain [outbound VM traffic](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections)
+- Disable [RDP](https://docs.microsoft.com/en-us/windows/desktop/TermServ/remote-desktop-protocol)/[SSH](https://www.ssh.com/)
+  - Employ [VPNs](https://azure.microsoft.com/en-us/services/vpn-gateway/) and [jump box](https://docs.microsoft.com/en-us/azure/security/azure-security-management#azure-operations)
+- [Web Application Firewall](https://docs.microsoft.com/en-us/azure/application-gateway/waf-overview)
+  - Centralised web application protection from [common exploits and vulnerabilities](https://cve.mitre.org/)
+- [DDoS Protection](https://docs.microsoft.com/en-us/azure/virtual-network/ddos-protection-overview)
+  - Always-on traffic monitoring and [real-time DDoS mitigation](https://azure.microsoft.com/en-us/services/ddos-protection/)
+- [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/)
+  - Unify security management and enable [advanced threat protection](https://docs.microsoft.com/en-us/azure-advanced-threat-protection/what-is-atp)
 
 
 ### Protect the Storage Subsystem ###
 
-- Protecting the storage account itself
-  - Managed disk storage vs. traditional storage account
-- RBAC
+- [Protecting the storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide) account itself
+  - [Managed disk storage](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview) vs. [traditional storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction)
+- [RBAC](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal)
   - Simplify it AMAP
-- Storage account keys (use for traditional storage accounts)
+- [Storage account keys](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-manage#access-keys) (use for traditional storage accounts)
   - 512-bit string created by Azure
-  - Key rollover
-  - Azure Key Vault
+  - [Key rollover](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-storage-keys)
+  - [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/)
     - Secret protection store
 
 #### Role based access control (RBAC) ####
@@ -587,60 +587,64 @@ regulating resource access based on job role. It is a granular, role-based resou
 
 ### Roles ###
 
-- Owner
-  - Full access
-- Contributor
-  - Full resource access but no grant/revoke privileges
-- Reader
-  - Read-only resource access
-- Custom
+- [Owner](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#owner)
+  - Full access to all resources
+  - Delegate access to others
+- [Contributor](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#contributor)
+  - Create and manage all of types of Azure resources
+  - Cannot grant access to others
+- [Reader](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#reader)
+  - View Azure resources
+- [User access administrator](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#user-access-administrator)
+  - Manage user access to Azure resources
+- [Custom](https://docs.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles#differences-between-azure-rbac-roles-and-azure-ad-administrator-roles)
   - Defined programmatically with JSON, PS, CLI or REST API
 
 ### Azure Resource Manager Policies ###
 
-- RBAC focuses on user actions at different scopes
-- ARM policies focus on resource properties during deployment
-  - Require tags for cost center management
+- [RBAC](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) focuses on [user actions at different scopes](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/roles-permissions-security)
+- [ARM policies](https://docs.microsoft.com/en-us/azure/governance/policy/overview) focus on resource properties during deployment
+  - Require [tags](https://docs.microsoft.com/en-us/rest/api/resources/tags) for [cost center management](https://azure.microsoft.com/en-us/updates/introducing-native-azure-cost-management-preview/)
   - Constrain resources to particular regions
 - Create policy definitions with JSON
-  - New-AzureRmPolicyDefinition
-  - New-AzureRmPolicyAssignment
+  - [New-AzureRmPolicyDefinition](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermpolicydefinition?view=azurermps-6.13.0)
+  - [New-AzureRmPolicyAssignment](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermpolicyassignment?view=azurermps-6.13.0)
 		
 ### Data Plane Security ###
 
 - Protecting storage account services
-  - Blobs, files, queues, tables
-- Shared access signatures (SAS)
+  - [Blobs, files, queues, tables](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide#data-plane-security)
+- Shared access signatures ([SAS](https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1))
   - Time-limited URIs
   - CRUD
-- Stored Access Policies
-  - Standardised, reusable SAS rules
+- [Stored Access Policies](https://azure.microsoft.com/en-us/updates/manage-stored-access-policies-for-storage-accounts-from-within-the-azure-portal/)
+  - Standardised, [reusable SAS rules](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas)
 
 ### Encryption in Transit ###
 
-- Enable HTTPS
-  - App Services apps
-  - IaaS web apps
-  - Blob service URIs
-- SMB 3.0 encryption in Azure File Share service
-- Client-side encryption
+- Enable [HTTPS](https://support.google.com/webmasters/answer/6073543?hl=en)
+  - [App Services](https://docs.microsoft.com/en-us/azure/app-service/) apps
+  - [IaaS](https://azure.microsoft.com/en-us/overview/what-is-iaas/) web apps
+  - [Blob service URIs](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-manage-access-to-resources)
+- [SMB 3.0 encryption](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn551363(v=ws.11)#BKMK_SMBEncryption) in [Azure File Share service](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction)
+- Client-side [encryption](https://docs.microsoft.com/en-us/azure/security/security-azure-encryption-overview)
   - Protects user app data before it's uploaded to Azure
-  - Accessed through the Azure SDK libraries
+  - Accessed through the [Azure SDK libraries](https://azure.microsoft.com/en-us/downloads/)
 
 ### Encryption at Rest ###
 
-- Storage Service Encryption (SSE)
+- Storage Service Encryption ([SSE](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption))
   - On-the-fly storage account encryption
-- Azure Disk Encryption
-  - BitLocker for Windows Server VM OS and data disks
-  - DM-Crypt for Linux VM disks
+- [Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq)
+  - [BitLocker](https://blogs.technet.microsoft.com/showmewindows/2018/01/18/how-to-enable-bitlocker-and-escrow-the-keys-to-azure-ad-when-using-autopilot-for-standard-users/) for Windows Server VM OS and data disks
+  - [DM-Crypt for Linux VM disks](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/encrypt-disks)
 
 ### Storage Analytics ###
 
 - Storage account logging and metrics data
-  - Storage Analytics metrics are available for the Blob, Queue, Table, and File services
-  - Storage Analytics logging is available for the Blob, Queue, and Table services. However, premium storage account is not supported
-  - Storage accounts with a replication type of Zone-Redundant Storage (ZRS) do not have the metrics or logging capability enabled at this time
+  - [Storage Analytics metrics](https://docs.microsoft.com/en-us/rest/api/storageservices/about-storage-analytics-metrics) are available for the Blob, Queue, Table, and File services
+  - [Storage Analytics logging](https://docs.microsoft.com/en-us/rest/api/storageservices/about-storage-analytics-logging) is available for the Blob, Queue, and Table services. However, premium storage account is not supported
+  - [Storage accounts with a replication](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) type of Zone-Redundant Storage (ZRS) do not have the metrics or logging capability enabled at this time
 - Requests
   - Successful and failed access
   - SAS requests
@@ -649,50 +653,52 @@ regulating resource access based on job role. It is a granular, role-based resou
 
 ### Firewall ###
 
-- NSG
-  - Can be attached to vNIC or vNet subnet
-- Software Firewall
+- [NSG](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview)
+  - Can be attached to [vNIC](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface-vm) or [vNet](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) subnet
+- [Software Firewall](https://azuremarketplace.microsoft.com/en-us/marketplace/?term=Firewall)
   - May or may not be necessary
   - More restrictive rules than NSG (cant overwrite NGS rules)
-- Virtual Appliances
-  - VM images from leading third-party OEMs
+- [Virtual Appliances](https://azure.microsoft.com/en-us/solutions/network-appliances/)
+  - VM images from leading [third-party OEM](https://azure.microsoft.com/en-us/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)s
 
 ### Antimalware ###
 
 - VM Extensions
-  - Microsoft Monitoring Agent
+  - [Microsoft Monitoring Agent](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agents-overview)
   - Third-party partners
 - Antimalware Assessment
-  - Part of Security & Compliance management solution
+  - Part of [Security & Compliance management solution](https://docs.microsoft.com/en-us/azure/security/security-management-and-monitoring-overview)
   - [Azure security center](https://docs.microsoft.com/en-us/azure/security-center/security-center-partner-integration)
 			Azure Security Center makes it easy to enable integrated third-party partner security solutions. Benefits include:
     - Simplified deployment: Security Center offers streamlined provisioning of integrated partner solutions. For solutions like antimalware and vulnerability assessment, Security Center can provision the needed agent on your virtual machines. For firewall appliances, Security Center can take care of much of the network configuration required.
     - Integrated detections: Security events from partner solutions are automatically collected, aggregated, and displayed as part of Security Center alerts and incidents. These events also are correlated with detections from other sources to provide advanced threat detection capabilities.
     - Unified health monitoring and management: Integrated health events provide monitoring of all partner solutions at a glance. Basic management is available, with easy access to advanced setup using the partner solution.
     - Currently, integrated security solutions include:
-      - Endpoint protection such as Trend Micro, Symantec, System Center Endpoint Protection (SCEP), and Windows Defender
-      - Web application firewalls (WAF) such as Azure Application Gateway, Barracuda, F5, Fortinet, and Imperva
-      - Next-generation firewalls (NGFW) such as Barracuda, Check Point, Cisco, Fortinet, and Palo Alto Networks
+      - Endpoint protection such as Trend Micro, Symantec, System Center Endpoint Protection ([SCEP](https://azure.microsoft.com/en-us/resources/videos/microsoft-endpoint-protection-for-azure/)), and Windows Defender
+      - Web application firewalls ([WAF](https://docs.microsoft.com/en-us/azure/application-gateway/waf-overview)) such as Azure Application Gateway, Barracuda, F5, Fortinet, and Imperva
+      - Next-generation firewalls ([NGFW](https://docs.microsoft.com/en-us/azure/security-center/security-center-add-next-generation-firewall)) such as Barracuda, Check Point, Cisco, Fortinet, and Palo Alto Networks
       - Vulnerability assessment such as Qualys
-- Log analytics
+- [Log analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/log-query-overview)
 
 ### Azure Security Center ###
 
+[Ref](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
+
 Provides:
 - Unified security management
-- Advanced threat protection
+- [Advanced threat protection](https://docs.microsoft.com/en-us/azure-advanced-threat-protection/atp-architecture)
   - Machine learning and behavioral analytics
-- Protection for hybrid cloud workloads
+- [Protection for hybrid cloud workloads](https://mva.microsoft.com/en-us/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173)
   - Onboard and protect Azure and on-premises resources
 
 It monitors:
 - Windows Server and Linux VMs
   - In Azure and on-premises
 - vNets
-- Azure SQL
+- [Azure SQL](https://azure.microsoft.com/en-us/services/sql-database/)
 - Azure storage accounts
-- Azure web apps in ASE
-- Partner solutions (WAFs)
+- Azure web apps in [ASE](https://docs.microsoft.com/en-us/azure/app-service/environment/intro)
+- Partner solutions ([WAF](https://azure.microsoft.com/en-us/blog/azure-web-application-firewall-waf-generally-available/)s)
 
 Has kind of alerts:
 - Unencrypted disks
@@ -701,7 +707,7 @@ Has kind of alerts:
   - Brute force attacks against VMs
   - Alerts from antimalware/firewall software
   - Compromised VMs communicating with known malicious IP addresses
-  - SQL injections against Azure SQL and IaaS SQL Server databases
+  - [SQL injections](https://www.owasp.org/index.php/SQL_Injection) against Azure SQL and IaaS SQL Server databases
 
 Notes:
 - ASC provides 30-days trial period.
@@ -712,15 +718,17 @@ Notes:
 
 ### ASC policy component ###
 
+[Ref](https://docs.microsoft.com/en-us/azure/security-center/tutorial-security-policy)
+
 Consists of:
 - Pricing tier
-- Webhooks
-- Prevention policy
+- [Webhooks](https://azure.microsoft.com/en-gb/resources/videos/introduction-to-webhooks-for-azure-alerts/)
+- [Prevention policy](https://docs.microsoft.com/en-us/azure/governance/policy/)
 
 ### Azure activity log ###
 
-- Formerly known as “audit logs”  or “operational logs”
-- Separate and distinct from diagnostic logs
+- Formerly [known](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/activity-logs-overview) as “audit logs”  or “operational logs”
+- Separate and distinct from [diagnostic logs](https://docs.microsoft.com/en-us/azure/cdn/cdn-azure-diagnostic-logs)
 - Report control-plane events on your subscription
 - Great flexibility in query, report and export
 
@@ -728,13 +736,13 @@ Consists of:
  
 ### Patch Management for Azure VMs ###
 
-- WSUS (Windows Server Update Services)
+- WSUS ([Windows Server Update Services](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus))
   - Local network
   - Virtual network
-- System Center
+- [System Center](https://comparisons.financesonline.com/microsoft-azure-vs-microsoft-system-center)
   - Local network
   - Virtual network
-- Update Management Solution
+- [Update Management Solution](https://docs.microsoft.com/en-us/azure/automation/automation-update-management)
   - Part of Azure Automation service
   - Manage updates for Windows server and Linux endpoint
 
