@@ -905,7 +905,7 @@ Consists of:
 - Script execution
   - [Azure automation runbooks](https://docs.microsoft.com/en-us/azure/automation/automation-webhooks)
 - SMS text
-  - [Twilio API])(https://www.twilio.com/docs/usage/api)
+  - [Twilio API](https://www.twilio.com/docs/usage/api)
  
 ## Troubleshooting and support ##
 
