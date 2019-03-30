@@ -750,24 +750,24 @@ Consists of:
 
 ### Three monitoring tiers ###
 
-- Resource health
-- Monitor Center
-- Log Analytics and Operations Management suite (OMS)
+- [Resource health](https://docs.microsoft.com/en-us/azure/service-health/resource-health-overview)
+- [Monitor Center](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)
+- [Log Analytics and Operations Management suite (OMS)](https://azure.microsoft.com/es-es/blog/new-ways-to-enable-log-analytics-oms-on-azure-vms/)
 
 ### Ways to check Azure service status ###
 
 - [Twitter](https://twitter.com/azurestatus)
 - [Azure site](https://azure.microsoft.com/en-us/status/)
-- Service health on the Azure portal
+- [Service health on the Azure portal](https://azure.microsoft.com/en-us/features/service-health/)
 
 ### Things to Keep in Mind Regarding Azure VM Monitoring ###
 
-- You're free to use native tools (PerfMon, ps)
-- With hybrid cloud, you can use System Center
-- Take Azure into account when evaluating mon. solution
-- OMS (operation management suit) is a tightly integrated solution
-- Learn about webhooks, REST, and SQL
-- Consider streaming data via Event Hub
+- You're free to use native tools ([PerfMon](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/perfmon), [ps](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-6))
+- With hybrid cloud, you can use [System Center](https://www.microsoft.com/fi-fi/cloud-platform/system-center)
+- Take Azure into account when evaluating [monitor solution](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/solutions)
+- [OMS](https://social.technet.microsoft.com/wiki/contents/articles/51206.microsoft-operations-management-suite-oms-a-beginner-s-guide.aspx) (operation management suite) is a tightly integrated solution
+- Learn about [webhooks](https://docs.microsoft.com/en-us/azure/automation/automation-webhooks), [REST](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/rest-api-walkthrough), and [SQL](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql)
+- Consider streaming data via [Event Hub](https://azure.microsoft.com/en-us/services/event-hubs/)
 
 ** Log analytics sets inside an OMS workspace which has a free tier option
 
@@ -775,47 +775,47 @@ Consists of:
 
 #### Infrastructure provides ####
 
-- Application logs and metrics
-- Diagnostic logs
-- Metrics
-- Activity log
+- [Application logs and metrics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collection)
+- [Diagnostic logs](https://docs.microsoft.com/en-us/azure/cdn/cdn-azure-diagnostic-logs)
+- [Metrics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-charts)
+- [Activity log](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/activity-logs-overview)
 
 #### Analysing tools ####
 
 - Visualize
-  - Graphics
-  - Portal views
-  - Dashboards
-  - Charts
+  - [Graphics](https://docs.microsoft.com/en-us/azure/azure-monitor/visualizations)
+  - [Portal views](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/tutorial-viewdata)
+  - [Dashboards](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/tutorial-app-dashboards)
+  - [Charts](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/charts)
 - Archive
-  - Store in blob storage
-  - Audit trail
-  - Security analysis
+  - [Store in blob storage](https://azure.microsoft.com/en-us/services/storage/archive/)
+  - [Audit trail](https://docs.microsoft.com/en-us/azure/security/azure-log-audit)
+  - [Security analysis](https://docs.microsoft.com/en-us/azure/security-center/security-center-vulnerability-assessment-recommendations)
 - Query
-  - REST API
-  - CLI
-  - PowerShell
+  - [REST API](https://docs.microsoft.com/en-us/rest/api/azure/)
+  - [CLI](https://docs.microsoft.com/en-us/cli/azure/)
+  - [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-6)
 - Route
-  - Streaming
-  - Notification service
+  - [Streaming](https://docs.microsoft.com/en-us/azure/iot-hub/tutorial-routing)
+  - [Notification service](https://docs.microsoft.com/en-us/azure/notification-hubs/)
 - Automate
-  - Webhooks
-  - Autoscale
-  - Azure automation
-  - Azure runbooks
+  - [Webhooks](https://azure.microsoft.com/en-us/resources/videos/introduction-to-webhooks-for-azure-alerts/)
+  - [Autoscale](https://azure.microsoft.com/en-us/features/autoscale/)
+  - [Azure automation](https://azure.microsoft.com/en-us/services/automation/)
+  - [Azure runbooks](https://docs.microsoft.com/en-us/azure/automation/start-runbooks)
 		
 
 ### Monitoring - A layer Approach ###
 
 - Resource level
   - Internal tools
-  - Metrics, alert rules
+  - [Metrics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-charts), [alert rules](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-metric)
 - Resource group level
   - Monitor blade
 - Enterprise level
-  - Hybrid nodes
-  - Log analytics
-  - Azure automation
+  - [Hybrid nodes](https://www.pluralsight.com/courses/microsoft-azure-hybrid-cloud-networks-monitoring)
+  - [Log analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-faq)
+  - [Azure automation](https://azure.microsoft.com/en-us/services/automation/)
 
 *Telemetry* - is an automated communications process by which measurements and other data are collected at remote or inaccessible points and transmitted to receiving equipment for monitoring.
 
@@ -825,35 +825,35 @@ Consists of:
 
 ### Azure Monitor Components ###
 
-- Activity log
+- [Activity log](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit)
   - On a Resource Group scale
-- Metrics
+- [Metrics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-charts)
   - Plot data points to a custom, sharable dashboard
-- Diagnostic logs
+- [Diagnostic logs](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-logs-overview)
   - Aggregated data can be analyzed with Power BI
-- Alerts
+- [Alerts](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-overview)
   - Get notified when metrics exceed threshold values
-  - Automatic remediation (Azure automation runbook, webhook)
+  - Automatic remediation ([Azure automation runbook, webhook](https://docs.microsoft.com/en-us/azure/automation/automation-webhooks))
 
 ### Azure diagnostics data ###
 
-- Event tracing
+- [Event tracing](https://docs.microsoft.com/en-us/windows/desktop/etw/event-tracing-portal)
   - Configured by app developers
-- Performance counters
+- [Performance counters](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-sources-performance-counters)
   - The 4 traditional subsystems
 - Event logs
-  - ETW
+  - [ETW](https://docs.microsoft.com/en-us/dotnet/framework/wcf/samples/etw-tracing)
 - Application logs
   - Configured by app developers
-- Azure diagnostics logs
+- [Azure diagnostics logs](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-logs-overview)
   - Table and/or blob storage
 
 ### Azure resource log ###
 
-- Activity log (audit log)
+- [Activity log](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit) (audit log)
   - Records operational details
   - "Who did what, and when" in Azure
-- Diagnostic log
+- [Diagnostic log](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-logs-overview)
   - Performance counters
   - Event logs (system, application, security)
   - IIS logs
@@ -881,11 +881,11 @@ Consists of:
 
 #### Data sources ####
 
-- Counters
-- Logs
-- App Insights
-- Agent devices (cloud and on-prem)
-- SCOM management groups
+- [Counters](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-sources-performance-counters)
+- [Logs](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-logs-overview)
+- [App Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
+- [Agent devices](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agents-overview) (cloud and on-prem)
+- [SCOM management groups](https://docs.microsoft.com/en-us/system-center/scom/manage-create-manage-groups)
 
 [Log Analytics query syntax](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/query-language)
 
@@ -893,7 +893,7 @@ Consists of:
 
 - Avoiding surprises
 - Email, SMS
-- Third-party security and event management (SIEM)
+- [Third-party security and event management](https://docs.microsoft.com/en-us/azure/security/security-azure-log-integration-overview) (SIEM)
 - Azure integration is eminently possible
 
 *Webhook* - is a way for an app to provide other applications with real-time information. Also called a web callback or an HTTP push API. The payload is ordinarily JSON.
@@ -901,11 +901,11 @@ Consists of:
 ### What can you do with Webhooks ###
 
 - Third-party integrations
-  - PagerDuty, OpsGenie, VictorOps, Slack, HipChat, Campfire, etc.…
+  - [PagerDuty](https://www.pagerduty.com), [OpsGenie](https://www.opsgenie.com/), [VictorOps](https://victorops.com/), [Slack](https://slack.com/), [HipChat](https://www.atlassian.com/partnerships/slack), [Campfire](https://www.campfiretechnology.com/), etc.…
 - Script execution
-  - Azure automation runbooks
+  - [Azure automation runbooks](https://docs.microsoft.com/en-us/azure/automation/automation-webhooks)
 - SMS text
-  - Twilio API
+  - [Twilio API])(https://www.twilio.com/docs/usage/api)
  
 ## Troubleshooting and support ##
 
@@ -913,17 +913,17 @@ Consists of:
 
 - Reset
   - Admin credentials
-  - RDP configuration
+  - [RDP configuration](https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/reset-rdp)
 - Verify
-  - NSG rules
+  - [NSG rules](https://blogs.msdn.microsoft.com/mvpawardprogram/2018/05/08/troubleshoot-nsgs/)
 - Review
-  - Console logs
-- Check VM resource health
-- Restart
-- Redeploy
+  - [Console logs](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)
+- [Check VM resource health](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/vminsights-health)
+- [Restart](https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/understand-vm-reboot)
+- [Redeploy](https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/redeploy-to-new-node-linux)
   - Migrates VM to a new hardware host
   - VM will be down during the migration
-- Delete
+- [Delete](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure/remove-azurevm)
   - Only the config, not the NIC or storage
   - Attack disk to working VM
   - Tweak registry
@@ -933,11 +933,11 @@ Consists of:
 
 ### How to buy azure services ###
 
-- Pay-as-You-Go
+- [Pay-as-You-Go](https://azure.microsoft.com/en-us/offers/pay-as-you-go/)
   - No minimum spend
   - Pay for what you use
   - Cancel anytime
-- Enterprise agreement (EA)
+- [Enterprise agreement](https://azure.microsoft.com/en-us/pricing/purchase-options/enterprise-agreement/) (EA)
   - Advantage: forecasting
   - Azure enterprise portal
 		
@@ -954,25 +954,28 @@ Consider spending limits
 
 ### Azure support plans ###
 
-- Included
+- [Basic](https://azure.microsoft.com/en-us/support/plans/)
   - Free
-- Developer
+- [Developer](https://azure.microsoft.com/en-us/support/plans/developer/)
   - 29$/month
-- Standard
+- [Standard](https://azure.microsoft.com/en-us/support/plans/standard/)
   - 300$/month
-- Professional direct
+- [Professional direct](https://azure.microsoft.com/en-us/support/plans/prodirect/)
   - 1,000$/month
-- Premier
+- [Premier](https://azure.microsoft.com/en-us/support/plans/premier/)
   - Contact Microsoft
 
 ## Managed disks ##
 
 ### Storage account limits ###
 
-- Number of storage account per subscription is 200
-- TB per storage account is 500 TB
+- [check](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) for the actual data 
+    - Number of storage account per subscription is 200
+    - TB per storage account is 500 TB
 
 ### Value proposition ###
+
+[video](https://azure.microsoft.com/en-us/resources/videos/ignite-2018-understanding-the-value-proposition-of-azure-key-vault/)
 
 - Azure manages VHDs
 - Node direct public access
