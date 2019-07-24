@@ -1,6 +1,8 @@
 
 # Just In Time Hooking #
 
+_The :ru: video from the DotNet meetup can be found [here](https://youtu.be/39fOc4Jr8lE) with the :uk: [slides](https://speakerdeck.com/dotnetru/gieorghii-plotnikov-just-in-time-hooking)_
+
 At the time the [Clr](https://github.com/dotnet/coreclr) became open source, tons of opportunities and ways to improve and analyze the code came alive.
 One of the ways I'd like to show you was developed when I was working on an enhancement  for the [BDN](https://github.com/dotnet/BenchmarkDotNet) project.
 
