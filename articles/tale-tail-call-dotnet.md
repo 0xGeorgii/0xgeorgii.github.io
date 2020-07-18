@@ -1,6 +1,8 @@
 
 # Tale about the tail call in dotnet #
 
+_please visit the new revision of this article [georgeplotnikov.com/tale-about-the-tail-call-in-dotnet](https://www.georgeplotnikov.com/tale-about-the-tail-call-in-dotnet/)_
+
 In the programming as the recursion we call the function which is directly, or indirectly calls itself: A->B / A->B->A.
 The recursive calls obviously might be a reason of stack overflowing [StackOverflowException].
 On the other hand, the recursive styled functions allow us clearly write our ideas, as Fibonacci, Fractal, Tree-walk function etc.
