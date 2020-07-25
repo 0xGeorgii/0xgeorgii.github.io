@@ -1,5 +1,8 @@
 # Elliptic curves smalltalk #1 #
 
+_please visit the new revision of this article [https://www.georgeplotnikov.com/elliptic-curves-smalltalk-vol-1/](https://www.georgeplotnikov.com/elliptic-curves-smalltalk-vol-1/)_
+
+
 Factorization on the elliptic curves was my diploma subject, so I decided to write some short note simply describes that the elliptic curves idea. If I had this note at the beginning of my research, I would save a lot of time 😃
 
 Elliptic curves uses are:
