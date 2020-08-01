@@ -1,5 +1,7 @@
 # Elliptic curves smalltalk #2 #
 
+_See the new version of this article here:[https://www.georgeplotnikov.com/elliptic-curves-smalltalk-vol-2/](https://www.georgeplotnikov.com/elliptic-curves-smalltalk-vol-2/)_
+
 Consider [Diffie–Hellman](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange) key exchange.
 
 [DH](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange) uses final field. For example <img src="https://latex.codecogs.com/gif.latex?\{1,2,3...238\}=\{1,g,g^2,...&space;g^{238}\;\}(mod\;239)"/>
