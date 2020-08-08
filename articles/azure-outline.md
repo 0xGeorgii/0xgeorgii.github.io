@@ -1,5 +1,7 @@
 # Azure outline #
 
+please visit the new revision of this article https://www.georgeplotnikov.com/azure-outline/
+
 ## Content ##
 
 - [Foundational Concepts](#foundational-concepts)
