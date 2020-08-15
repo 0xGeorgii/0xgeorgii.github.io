@@ -1,5 +1,6 @@
 ## Articles
 
+* **08/15/2020** [Cosmos partitioning](https://www.georgeplotnikov.com/cosmos-partitioning/) [outer link]
 * **01/19/2019** [Azure outline](https://georgeplotnikov.github.io/articles/azure-outline)
 * **10/02/2018** [The Provers proof](https://georgeplotnikov.github.io/articles/the-provers-proof)
 * **05/01/2018** [Just in time hooking](https://georgeplotnikov.github.io/articles/just-in-time-hooking)
