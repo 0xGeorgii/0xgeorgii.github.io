@@ -1,5 +1,7 @@
 # The provers proof #
 
+please visit the new revision of this article https://www.georgeplotnikov.com/the-provers-proof/
+
 ## Instead of introduction ##
 
 To made up the actual data with the actual list of competitive provers I used the [CADE](http://www.cadeinc.org/)'s data in 2018.
