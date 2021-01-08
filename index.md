@@ -1,5 +1,6 @@
 ## Articles
 
+* **01/09/2021** [Azure Anomaly Detector detecting _detection](https://www.georgeplotnikov.com/azure-anomaly-detector-detecting-_detection/)
 * **12/22/2020** [Cosmic sorting in Cosmos DB](https://www.georgeplotnikov.com/cosmic-sorting-in-cosmos-db/) [outer link]
 * **11/22/2020** [Azure Data Factory data source projection error](https://www.georgeplotnikov.com/azure-data-factory-data-source-projection-error/) [outer link]
 * **09/12/2020** [Azure Logic App tips and tricks](https://www.georgeplotnikov.com/azure-logic-app-tips-and-tricks/) [outer link]
