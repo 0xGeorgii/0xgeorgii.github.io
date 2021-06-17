@@ -1,6 +1,6 @@
 ## Articles
 
-* **06/17/2021** [Azure Function to Cosmos DB via Azure Active Directory](https://www.georgeplotnikov.com/access-azure-function-to-cosmos-db-via-azure-active-directory-managed-identity/)
+* **06/17/2021** [Azure Function to Cosmos DB via Azure Active Directory](https://www.georgeplotnikov.com/access-azure-function-to-cosmos-db-via-azure-active-directory-managed-identity/) [outer link]
 * **01/09/2021** [Azure Anomaly Detector detecting _detection](https://www.georgeplotnikov.com/azure-anomaly-detector-detecting-_detection/) [outer link]
 * **12/22/2020** [Cosmic sorting in Cosmos DB](https://www.georgeplotnikov.com/cosmic-sorting-in-cosmos-db/) [outer link]
 * **11/22/2020** [Azure Data Factory data source projection error](https://www.georgeplotnikov.com/azure-data-factory-data-source-projection-error/) [outer link]
