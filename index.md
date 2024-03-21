@@ -1,15 +1,9 @@
 ## Articles
 
-* **01/27/2022** [Powerless Power Platform](https://www.georgeplotnikov.com/powerless-power-platform/) [my blog]
-* **06/17/2021** [Azure Function to Cosmos DB via Azure Active Directory](https://www.georgeplotnikov.com/access-azure-function-to-cosmos-db-via-azure-active-directory-managed-identity/) [my blog]
-* **01/09/2021** [Azure Anomaly Detector detecting _detection](https://www.georgeplotnikov.com/azure-anomaly-detector-detecting-_detection/) [my blog]
-* **12/22/2020** [Cosmic sorting in Cosmos DB](https://www.georgeplotnikov.com/cosmic-sorting-in-cosmos-db/) [my blog]
-* **11/22/2020** [Azure Data Factory data source projection error](https://www.georgeplotnikov.com/azure-data-factory-data-source-projection-error/) [my blog]
-* **09/12/2020** [Azure Logic App tips and tricks](https://www.georgeplotnikov.com/azure-logic-app-tips-and-tricks/) [my blog]
-* **08/15/2020** [Cosmos partitioning](https://www.georgeplotnikov.com/cosmos-partitioning/) [my blog]
-* **01/19/2019** [Azure outline](https://georgeplotnikov.github.io/articles/azure-outline)
-* **10/02/2018** [The Provers proof](https://georgeplotnikov.github.io/articles/the-provers-proof)
-* **05/01/2018** [Just in time hooking](https://georgeplotnikov.github.io/articles/just-in-time-hooking)
-* **01/29/2018** [Elliptic curves smalltalk vol.2](https://georgeplotnikov.github.io/articles/elliptic-curves-smalltalk-p2)
-* **12/13/2017** [Elliptic curves smalltalk vol.1](https://georgeplotnikov.github.io/articles/elliptic-curves-smalltalk-p1)
-* **11/27/2017** [Tale about the tail call in dotnet](https://georgeplotnikov.github.io/articles/tale-tail-call-dotnet)
+* **03/06/2024** [[Inferara]](https://www.inferara.com) [Verification-driven development](https://www.inferara.com/posts/verification-driven-development/)
+* **02/01/2024** [[Inferara]](https://www.inferara.com) [Program Verification: background and notation](https://www.inferara.com/posts/program-verification-background-and-notation/)
+* **10/02/2018** [The Provers proof](https://0xgeorgii.github.io/articles/the-provers-proof)
+* **05/01/2018** [Just in time hooking](https://0xgeorgii.github.io/articles/just-in-time-hooking)
+* **01/29/2018** [Elliptic curves smalltalk vol.2](https://0xgeorgii.github.io/articles/elliptic-curves-smalltalk-p2)
+* **12/13/2017** [Elliptic curves smalltalk vol.1](https://0xgeorgii.github.io/articles/elliptic-curves-smalltalk-p1)
+* **11/27/2017** [Tale about the tail call in dotnet](https://0xgeorgii.github.io/articles/tale-tail-call-dotnet)
