@@ -1,5 +1,6 @@
 ## Articles
 
+* **04/05/2024** [[Inferara]](https://www.inferara.com) [Deductive Verification as an Alternative to Push-Button Technologies](https://www.inferara.com/papers/deductive-verification-as-alternative-to-push-button-technologies/)
 * **03/06/2024** [[Inferara]](https://www.inferara.com) [Verification-driven development](https://www.inferara.com/papers/verification-driven-development/)
 * **02/01/2024** [[Inferara]](https://www.inferara.com) [Program Verification: background and notation](https://www.inferara.com/papers/program-verification-background-and-notation/)
 * **10/02/2018** [The Provers proof](https://0xgeorgii.github.io/articles/the-provers-proof)
