@@ -3,8 +3,6 @@
 
 _The :ru: video from the DotNet meetup can be found [here](https://youtu.be/39fOc4Jr8lE) with the :uk: [slides](https://speakerdeck.com/dotnetru/gieorghii-plotnikov-just-in-time-hooking)_
 
-please visit the new revision of this article https://www.georgeplotnikov.com/just-in-time-hooking/
-
 At the time the [Clr](https://github.com/dotnet/coreclr) became open source, tons of opportunities and ways to improve and analyze the code came alive.
 One of the ways I'd like to show you was developed when I was working on an enhancement  for the [BDN](https://github.com/dotnet/BenchmarkDotNet) project.
 
@@ -31,33 +29,33 @@ While I've been analyzing the JIT dumps, like
 ```
 
 I was thinking: what do all these guys (BLENDED_CODE, optimized code, ...) mean and
-*if it's possible to me, to knew how the JIT analyze and try to optimize my code?*
+*is it possible for me, to know how the JIT analyze and tries to optimize my code?*
 
-Describing all this in the separate topic, for now, let's try to extract as much information from the JIT as it's possible.
+Describing all this in a separate topic, for now, let's try to extract as much information from the JIT as it's possible.
 To do it, it's reasonable to use one technique which is applicable because the source is open - [hooking](https://en.wikipedia.org/wiki/Hooking).
 
 ## Hooking ##
 
 To get the information about my function interested to me the easiest way is to treat this information right from the compiler, I believe.
-From the different techniques of hooking, I selected the runtime one by the reason hooking JIT, and I want to get the current, real information
-from my system preferable compiler, which I can expect on the most computers instead of developers version.
+From the different techniques of hooking, I selected the runtime one by the reason for hooking JIT, and I want to get the current, real information
+from my system preferable compiler, which I can expect on most computers instead of the developer version.
 
-*That's the just brief reminder how to hook the external code.*
+*That's just a brief reminder of how to hook the external code.*
 
-To do this I have to find the method which is suitable for hooking and can expose to me its argument I can handle in my way I want.
+To do this I have to find the method which is suitable for hooking and can expose to me its argument I can handle in the way I want.
 
 It should:
 1. be marked as `external`, otherwise, I won't be able to see it from the assembly
-2. should return something virtual, so I could interact with it's VTable in late binding
+2. should return something virtual, so I could interact with its VTable in late binding
 3. arguments mostly should give me the information I'm looking for
 
-Lucky, In the CoreClr there is an entrypoint wich suits perfectly, it's `extern "C" ICorJitCompiler* __stdcall getJit()` from
+Lucky, In the CoreClr there is an entrypoint that suits perfectly, it's `extern "C" ICorJitCompiler* __stdcall getJit()` from
 [here](https://github.com/dotnet/coreclr/blob/8db8ec135fb5e797b6bdc6e68545bb4661f43881/src/inc/corjit.h#L241).
 
 Before digging deep into the internals it makes sense to describe *the common hooking workflow*.
 
 1. *Determine the function's signature.* Okay, I've got one, `getJit()` and it returns an implementation of `ICorJitCompiler`.
-This interface has the great method which I definitely want to hook `compileMethod`.
+This interface has a great method which I definitely want to hook `compileMethod`.
 
 ```
 // compileMethod is the main routine to ask the JIT Compiler to create native code for a method. The
@@ -108,23 +106,23 @@ or in the C++ definition:
 #define CompileFunctionSig CorJitResult(*compileMethod)(void*, struct CORINFO_METHOD_INFO*, unsigned flags, BYTE**, ULONG*)
 ```
 
-2. After gathering the pointer to the function to re-write it, its necessary to mark it's memory as re-writable.
+2. After gathering the pointer to the function to re-write it, it's necessary to mark its memory as re-writable.
 It can be done via [VirtualProtect](https://msdn.microsoft.com/ru-ru/library/windows/desktop/aa366898%28v=vs.85%29.aspx) win32 function.
 
-To call it from the C# need interop wrap:
+To call it from the C# we need to interop wrap:
 
 ```
 [DllImport("kernel32.dll", BestFitMapping = true, CallingConvention = CallingConvention.Winapi, SetLastError = true, ExactSpelling = true)]
 public static extern bool VirtualProtect(IntPtr lpAddress, UInt32 dwSize, MemoryProtectionConstants flNewProtect, out UInt32 lpflOldProtect);
 ```
 
-3. Precompile the delegates function before hooking. It's must be done to prevent SOE, the otherwise hooked compileMethod function will be
-JITted with itself infinitevely. `PrepareDelegate` [method](https://github.com/dotnet/coreclr/issues/15522) is doing this kind required the job.
-It's jitting the provided method and keeps it alive from the GC via it's fixed pointer.
+3. Precompile the delegate's function before hooking. It must be done to prevent SOE, the otherwise hooked compileMethod function will be
+JITted with itself infinitely. `PrepareDelegate` [method](https://github.com/dotnet/coreclr/issues/15522) is doing this kind required the job.
+It's jitting the provided method and keeps it alive from the GC via its fixed pointer.
 
-4. Essentially replace original function pointer in Vtable with the new one.
+4. Essentially replace the original function pointer in Vtable with the new one.
 
-5. Return previous `VitrualProtect` level for the used memory.
+5. Return the previous `VitrualProtect` level for the used memory.
 
 ## Altogether ##
 
@@ -233,7 +231,7 @@ contains the parameters I want to describe
 
 1. `ICorJitInfo`. From the [code](https://github.com/dotnet/coreclr/blob/9f1dc4444478ccbac2476d53949c471583876ad7/src/inc/corjit.h#L318): "ICorJitInfo is the main interface that the JIT uses to call back to the EE and get information.".
 As described, this interface has many useful functions to get the information of your code. Like `getJitFlags`
-2. `CORINFO_METHOD_INFO`. The structure which contains many interesting and useful information like
+2. `CORINFO_METHOD_INFO`. The structure contains interesting and useful information like
 
 * ILCode
 * ILCodeSize
@@ -266,7 +264,7 @@ public unsafe struct CorInfo
 }
 ```
 
-3. `corJitFlag` a bunch of flags indicated broad attributes and parameters of the code for different compiler optimization approaches.
+3. `corJitFlag` is a bunch of flags that indicate broad attributes and parameters of the code for different compiler optimization approaches.
 Its data we need, for sure [Here](https://github.com/GeorgePlotnikov/ClrAnalyzer/blob/master/ClrAnalyzer.Core/Compiler/CorJitFlags.cs) is a C# wrapper for using this.
 
 4. `nativeEntry`
@@ -274,10 +272,10 @@ Its data we need, for sure [Here](https://github.com/GeorgePlotnikov/ClrAnalyzer
 5. `nativeSizeOfCode`
 
 The result of it is me [repository](https://github.com/GeorgePlotnikov/ClrAnalyzer) where you can find the working code. There are 2 versions of how to do it. First is the total C#
-wrapping and interacting with interop interfaces. The second is the creation separate "C" library with the only one entrypoint where all
+wrapping and interacting with interop interfaces. The second is the creation of a separate "C" library with only one entrypoint where all
 magic should be done. The second approach is more clear because all datatypes and structures you can use as they are...almost :-).
 
-For the convenient and safe allocation unsafe structures there is the 3s steps way to do it:
+For the convenient and safe allocation of unsafe structures there is the 3s steps way to do it:
 
 ```
 public unsafe interface ICorJitCompiler
